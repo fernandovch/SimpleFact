@@ -1,0 +1,24 @@
+D:\Punto de Venta\SimpleFactSolution\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.deps.json
+D:\Punto de Venta\SimpleFactSolution\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.runtimeconfig.json
+D:\Punto de Venta\SimpleFactSolution\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.runtimeconfig.dev.json
+D:\Punto de Venta\SimpleFactSolution\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.dll
+D:\Punto de Venta\SimpleFactSolution\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.pdb
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.csprojResolveAssemblyReference.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.csproj.CoreCompileInputs.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.AssemblyInfoInputs.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.AssemblyInfo.cs
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.dll
+D:\Punto de Venta\SimpleFactSolution\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.pdb
+D:\POS Git\SimpleFact\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.deps.json
+D:\POS Git\SimpleFact\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.runtimeconfig.json
+D:\POS Git\SimpleFact\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.runtimeconfig.dev.json
+D:\POS Git\SimpleFact\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.dll
+D:\POS Git\SimpleFact\POS.Web\bin\Debug\netcoreapp2.0\POS.Web.pdb
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.csprojResolveAssemblyReference.cache
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.csproj.CoreCompileInputs.cache
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.AssemblyInfoInputs.cache
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.AssemblyInfo.cs
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.dll
+D:\POS Git\SimpleFact\POS.Web\obj\Debug\netcoreapp2.0\POS.Web.pdb

@@ -1,0 +1,18 @@
+D:\Punto de Venta\SimpleFactSolution\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.deps.json
+D:\Punto de Venta\SimpleFactSolution\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll
+D:\Punto de Venta\SimpleFactSolution\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.pdb
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csprojResolveAssemblyReference.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CoreCompileInputs.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfoInputs.cache
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.dll
+D:\Punto de Venta\SimpleFactSolution\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.pdb
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.deps.json
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.pdb
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csprojResolveAssemblyReference.cache
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CoreCompileInputs.cache
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfoInputs.cache
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.dll
+D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.pdb
