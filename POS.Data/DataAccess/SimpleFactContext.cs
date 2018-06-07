@@ -1,15 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Protocols;
 using POS.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace POS.Data.DataAccess
 {
     public class SimpleFactContext:DbContext
     {
-        public SimpleFactContext(DbContextOptions<SimpleFactContext> options):base(options) { }
+        //public SimpleFactContext(DbContextOptions<SimpleFactContext> options):base(options) { }
+
+        IConfiguration configuration;
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SimpleFactConexion").ToString());
+
+
+        }
 
         public DbSet<DetalleFactura> DetalleFactura { get; set; }
         public DbSet<EncabezadoFactura> EncabezadoFactura { get; set; }

@@ -16,3 +16,6 @@ D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfoInpu
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.dll
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.pdb
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll.config
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.dll
+D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.xml
