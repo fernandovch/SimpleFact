@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using POS.BLogic.MantenimientoProducto;
 using POS.Data.DataAccess;
 using POS.Data.Models;
@@ -20,25 +21,30 @@ namespace UnitTestBusinessLogic
             return config;
         }
 
-        IGenericRepository<Producto> repos;
+       /* IGenericRepository<Producto> repos;
         [TestInitialize]
         public void Setup()
         {
-           // this.repos = new Moq.Mock< IGenericRepository<Producto>>();
-        }
+            var x = new Mock<IGenericRepository<Producto>>();
+            MantenimientoProducto mante = new MantenimientoProducto(repos);
+
+            Producto producto = mante.BuscarProductoPorCodigo("1");
+
+            Assert.AreEqual(producto.Codigo, "1");
+        }*/
 
 
 
         [TestMethod]
         public void TestMethod1()
         {
-            //var repos = new Producto();
-            //var mock = new GenericRepository
-            //MantenimientoProducto mante = new MantenimientoProducto(repos);
+           
+            var x = new Mock<IGenericRepository<Producto>>();
+            MantenimientoProducto mante = new MantenimientoProducto(x.Object);
 
-            //Producto producto = mante.BuscarProductoPorCodigo("1");
+            Producto producto = mante.BuscarProductoPorCodigo("1");
 
-            //Assert.AreEqual(producto.Codigo, "1");
+            Assert.AreEqual(producto.Codigo, "1");
             
             
 
@@ -48,3 +54,4 @@ namespace UnitTestBusinessLogic
         }
     }
 }
+
