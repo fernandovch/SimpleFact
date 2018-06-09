@@ -21,7 +21,7 @@ namespace UnitTestBusinessLogic
             return config;
         }
 
-       /* IGenericRepository<Producto> repos;
+      /*  IGenericRepository<Producto> repos;
         [TestInitialize]
         public void Setup()
         {
@@ -31,26 +31,18 @@ namespace UnitTestBusinessLogic
             Producto producto = mante.BuscarProductoPorCodigo("1");
 
             Assert.AreEqual(producto.Codigo, "1");
-        }*/
-
+        }
+        */
 
 
         [TestMethod]
         public void TestMethod1()
         {
-           
-            var x = new Mock<IGenericRepository<Producto>>();
-            MantenimientoProducto mante = new MantenimientoProducto(x.Object);
-
-            Producto producto = mante.BuscarProductoPorCodigo("1");
-
-            Assert.AreEqual(producto.Codigo, "1");
+            SimpleFactContext context = new SimpleFactContext();
+            IGenericRepository<Producto> producto = new GenericRepository<Producto>(context);
             
             
-
-
-
-
+            
         }
     }
 }

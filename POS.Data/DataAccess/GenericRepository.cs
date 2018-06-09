@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace POS.Data.DataAccess
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected SimpleFactContext _context;
 

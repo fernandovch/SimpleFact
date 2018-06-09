@@ -9,8 +9,8 @@ namespace POS.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public EncabezadoFactura Factura { get; set; }
-        public Producto Producto { get; set; }
+        public int IdEncabezadoFactura { get; set; }
+        public int IdProducto { get; set; }
         public int Cantidad { get; set; }
         public string Exoneracion_NombreInstitucion { get; set; }
         public DateTime Exoneracion_FechaEmision { get; set; }

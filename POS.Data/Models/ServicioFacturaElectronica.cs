@@ -10,7 +10,7 @@ namespace POS.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public EncabezadoFactura Factura { get; set; }
+        public int IdFactura { get; set; }
         public DateTime TiempoEnvio { get; set; }
         public XmlDocument XMLFacturaElectronica { get; set; }
         public DateTime TiempoRecibido { get; set; }

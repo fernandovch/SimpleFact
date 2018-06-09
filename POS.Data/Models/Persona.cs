@@ -9,9 +9,9 @@ namespace POS.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public TipoCedula TipoIdentificacion { get; set; }
-        public Ubicacion Ubicacion { get; set; }
-        public TipoFigura TipoEntidad { get; set; }
+        public int IdTipoIdentificacion { get; set; }
+        public int IdUbicacion { get; set; }
+        public int IdTipoEntidad { get; set; }
         public string Identificacion { get; set; }
         public string Nombre { get; set; }
         public string NombreComercial { get; set; }

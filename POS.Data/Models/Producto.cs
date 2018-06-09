@@ -9,11 +9,11 @@ namespace POS.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public ProductoCategoria Categoria { get; set; }
-        public Persona Proveedor { get; set; }
-        public TipoUnidadesMedida UnidadMedida { get; set; }
-        public TipoImpuestos Impuesto { get; set; }
-        public TipoExoneraciones Exoneraciones { get; set; }
+        public int IdCategoria { get; set; }
+        public int IdProveedor { get; set; }
+        public int IdUnidadMedida { get; set; }
+        public int IdImpuesto { get; set; }
+        public int IdExoneraciones { get; set; }
         public string Nombre { get; set; }
         public string Detalle { get; set; }
         public int CantidadDisponible { get; set; }
