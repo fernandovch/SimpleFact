@@ -7,23 +7,22 @@ namespace POS.Data.Models
 {
     public class DetalleFactura
     {
-        [Key]
         public int Id { get; set; }
-        public int IdEncabezadoFactura { get; set; }
+        public int IdFactura { get; set; }
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
-        public string Exoneracion_NombreInstitucion { get; set; }
-        public DateTime Exoneracion_FechaEmision { get; set; }
-        public decimal Exoneracion_MontoImpuesto { get; set; }
-        public int Exoneracion_PorcentajeCompra { get; set; }
-        public decimal Impuesto_Tarifa { get; set; }
-        public decimal Impuestp_Monto { get; set; }
-        public decimal MontoDescuento { get; set; }
-        public string NaturalezaDescuento { get; set; }
-        public decimal SubTotal { get; set; }
-        public decimal Total { get; set; }
+        public string ExoneracionNombreInstitucion { get; set; }
+        public DateTime? ExoneracionFechaEmision { get; set; }
+        public decimal? ExoneracionMontoImpuesto { get; set; }
+        public int? ExoneracionPorcentajeCompra { get; set; }
+        public decimal? ImpuestoTarifa { get; set; }
+        public decimal? ImpuestpMonto { get; set; }
+        public decimal? MontoDescuento { get; set; }
+        public decimal? NaturalezaDescuento { get; set; }
+        public decimal? SubTotal { get; set; }
+        public decimal? MontoTotal { get; set; }
 
-
-
+        public EncabezadoFactura IdFacturaNavigation { get; set; }
+        public Producto IdProductoNavigation { get; set; }
     }
 }

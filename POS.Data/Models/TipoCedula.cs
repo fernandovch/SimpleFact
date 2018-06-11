@@ -7,10 +7,16 @@ namespace POS.Data.Models
 {
     public class TipoCedula
     {
-        [Key]
+        public TipoCedula()
+        {
+            Persona = new HashSet<Persona>();
+        }
+
         public int Id { get; set; }
-        public string Codigo { get; set; }
         public string Descripcion { get; set; }
-        public bool Activo { get; set; }
+        public string Codigo { get; set; }
+        public bool? Activo { get; set; }
+
+        public ICollection<Persona> Persona { get; set; }
     }
 }

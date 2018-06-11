@@ -7,10 +7,9 @@ namespace POS.Data.Models
 {
     public class ModulosSistema
     {
-        [Key]
         public int Id { get; set; }
         public string Modulo { get; set; }
         public string Descripcion { get; set; }
-        public bool Activo { get; set; }
+        public bool? Activo { get; set; }
     }
 }

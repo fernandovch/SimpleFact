@@ -40,6 +40,7 @@ namespace UnitTestBusinessLogic
         {
             SimpleFactContext context = new SimpleFactContext();
             IGenericRepository<Producto> producto = new GenericRepository<Producto>(context);
+            var algo = producto.Get(3);
             
             
             

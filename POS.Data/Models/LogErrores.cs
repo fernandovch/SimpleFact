@@ -7,11 +7,10 @@ namespace POS.Data.Models
 {
     public class LogErrores
     {
-        [Key]
         public int Id { get; set; }
         public int Modulo { get; set; }
         public string MensajeError { get; set; }
         public string DetalleError { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime? Fecha { get; set; }
     }
 }

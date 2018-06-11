@@ -13,7 +13,6 @@ D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll
 D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.pdb
 D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.dll
 D:\POS Git\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.xml
-D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csprojAssemblyReference.cache
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CoreCompileInputs.cache
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfoInputs.cache
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs

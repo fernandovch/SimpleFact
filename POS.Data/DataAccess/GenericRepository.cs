@@ -30,7 +30,13 @@ namespace POS.Data.DataAccess
 
         public virtual T Get(int id)
         {
+            try { 
             return _context.Set<T>().Find(id);
+            }
+            catch (Exception _e)
+            {
+                return null;
+            }
         }
 
         public virtual async Task<T> GetAsync(int id)
