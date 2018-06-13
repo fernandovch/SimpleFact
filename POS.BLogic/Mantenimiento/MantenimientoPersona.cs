@@ -165,5 +165,25 @@ namespace POS.BLogic.Mantenimiento
             }
         }
 
+        /// <summary>
+        /// Selecciona todos los tipos de cedula que se encuentren activos.
+        /// </summary>
+        /// <returns></returns>
+        public List<TipoCedula> SeleccionarTipoCedula()
+        {
+            List<TipoCedula> tiposCedula;
+            try
+            {
+                tiposCedula = Interface_tipoCedula.FindBy(x => x.Activo == true);
+                return tiposCedula;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+
+
     }
 }
