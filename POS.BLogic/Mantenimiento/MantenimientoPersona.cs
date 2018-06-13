@@ -8,27 +8,34 @@ namespace POS.BLogic.Mantenimiento
 {
     public class MantenimientoPersona
     {
-        IGenericRepository<Persona> persona;
-        IGenericRepository<Ubicacion> ubicacion;
-        IGenericRepository<TipoFigura> tipoFigura;
-        IGenericRepository<LogErrores> logErrores;
+        private IGenericRepository<Persona> Interface_persona;
+        private IGenericRepository<Ubicacion> Interface_ubicacion;
+        private IGenericRepository<TipoFigura> Interface_tipoFigura;
+        private IGenericRepository<LogErrores> Interface_logErrores;
+        private IGenericRepository<TipoCedula> Interface_tipoCedula;
 
         public MantenimientoPersona(IGenericRepository<Persona> _persona, IGenericRepository<Ubicacion> _ubicacion, 
-                IGenericRepository<TipoFigura> _tipoFigura, IGenericRepository<LogErrores> _logErrores)
+                IGenericRepository<TipoFigura> _tipoFigura, IGenericRepository<LogErrores> _logErrores, IGenericRepository<TipoCedula> _tipoCedula)
         {
-            persona = _persona;
-            ubicacion = _ubicacion;
-            tipoFigura = _tipoFigura;
-            logErrores = _logErrores;
+            Interface_persona = _persona;
+            Interface_ubicacion = _ubicacion;
+            Interface_tipoFigura = _tipoFigura;
+            Interface_logErrores = _logErrores;
+            Interface_tipoCedula = _tipoCedula;
         }
 
-        public Persona BuscarPersonaPorCedula(string _cedula)
+        /// <summary>
+        /// Buscar persona por # de cédula.
+        /// </summary>
+        /// <param name="_cedula"></param>
+        /// <returns></returns>
+        public List<Persona> BuscarPersonaPorCedula(string _cedula)
         {
-            Persona Result;           
+            List<Persona> Result;           
             try
             {
-               // Result = (Persona)persona.FindBy(x => x.Identificacion == _cedula);
-                return null;
+                Result = Interface_persona.FindBy(x => x.Identificacion == _cedula);
+                return Result;
             }
             catch (Exception _ex)
             {
@@ -37,17 +44,17 @@ namespace POS.BLogic.Mantenimiento
 
         }
 
-        public Ubicacion BuscarUbicacionPorCodigo(string _codigo)
+        /// <summary>
+        /// Seleccionar todos los Tipos de figuras que estén activos.
+        /// </summary>
+        /// <returns></returns>
+        public List<TipoFigura> SeleccionarTipoFigura()
         {
-            Ubicacion Result;
-            //var servicios = new ServiceCollection();
-            //servicios.AgregarColeccionServicio();
-
-            //var provedor = servicios.BuildServiceProvider();
+            List<TipoFigura> ListTipoFigura;            
             try
             {
-               // Result = (Ubicacion)ubicacion.FindBy(x => x.Codigo == _codigo);
-                return null;
+                ListTipoFigura = Interface_tipoFigura.FindBy(x => x.Activo == true);
+                return ListTipoFigura;
             }
             catch (Exception _ex)
             {
@@ -56,25 +63,107 @@ namespace POS.BLogic.Mantenimiento
 
         }
 
-        public TipoFigura BuscarFipoFigura(int _id)
+        /// <summary>
+        /// Agregar una entidad persona nueva.
+        /// </summary>
+        /// <param name="_idIdentificacion"></param>
+        /// <param name="_idUbicacion"></param>
+        /// <param name="_idTipoFigura"></param>
+        /// <param name="_identificacion"></param>
+        /// <param name="_nombre"></param>
+        /// <param name="_nombreComercial"></param>
+        /// <param name="_correoElectronico"></param>
+        /// <param name="_fechaNacimiento"></param>
+        /// <param name="_telCodïgoPais"></param>
+        /// <param name="_TelNumero"></param>
+        /// <param name="_faxCodigoPais"></param>
+        /// <param name="_faxNumero"></param>
+        /// <param name="_direccionOtrasSenas"></param>
+        /// <param name="_esCorreoValido"></param>
+        /// <param name="_activo"></param>
+        /// <returns></returns>
+        public Persona AgregarPersona(int _idIdentificacion, int _idUbicacion, int _idTipoFigura, string _identificacion, string _nombre,
+            string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodïgoPais, string _TelNumero, 
+            string _faxCodigoPais, string _faxNumero, string _direccionOtrasSenas, bool _esCorreoValido, bool _activo)
         {
-            TipoFigura Result;
-            //var servicios = new ServiceCollection();
-            //servicios.AgregarColeccionServicio();
-
-            //var provedor = servicios.BuildServiceProvider();
+            Persona p;
             try
             {
-                //Result = (TipoFigura)tipoFigura.FindBy(x => x.Id == _id);
-                return null;
+                p = new Persona();
+                p.IdIdentificacion = _idIdentificacion;
+                p.IdUbicacion = _idUbicacion;
+                p.IdTipoFigura = _idTipoFigura;
+                p.Identificacion = _identificacion;
+                p.Nombre = _nombre;
+                p.NombreComercial = _nombreComercial;
+                p.CorreoElectronico = _correoElectronico;
+                p.FechaNacimiento = _fechaNacimiento;
+                p.TelCodïgoPais = _telCodïgoPais;
+                p.TelNumero = _TelNumero;
+                p.FaxCodïgoPais = _faxCodigoPais;
+                p.FaxNumero = _faxNumero;
+                p.DireccionOtrasSenas = _direccionOtrasSenas;
+                p.EsCorreoValido = _esCorreoValido;
+                p.Activo = _activo;
+                return Interface_persona.Add(p);
+
             }
-            catch (Exception _ex)
+            catch(Exception ex)
             {
                 return null;
             }
-
         }
 
+        /// <summary>
+        /// Actualizar informacion de la entidad persona.
+        /// </summary>
+        /// <param name="_idIdentificacion"></param>
+        /// <param name="_idUbicacion"></param>
+        /// <param name="_idTipoFigura"></param>
+        /// <param name="_identificacion"></param>
+        /// <param name="_nombre"></param>
+        /// <param name="_nombreComercial"></param>
+        /// <param name="_correoElectronico"></param>
+        /// <param name="_fechaNacimiento"></param>
+        /// <param name="_telCodïgoPais"></param>
+        /// <param name="_TelNumero"></param>
+        /// <param name="_faxCodigoPais"></param>
+        /// <param name="_faxNumero"></param>
+        /// <param name="_direccionOtrasSenas"></param>
+        /// <param name="_esCorreoValido"></param>
+        /// <param name="_activo"></param>
+        /// <param name="_id"></param>
+        /// <returns></returns>
+        public Persona ModificarPersona(int? _idIdentificacion, int? _idUbicacion, int _idTipoFigura, string _identificacion, string _nombre,
+          string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodïgoPais, string _TelNumero,
+          string _faxCodigoPais, string _faxNumero, string _direccionOtrasSenas, bool _esCorreoValido, bool _activo, int _id)
+        {
+            Persona p;
+            try
+            {
+                p = new Persona();
+                p.IdIdentificacion = _idIdentificacion;
+                p.IdUbicacion = _idUbicacion;
+                p.IdTipoFigura = _idTipoFigura;
+                p.Identificacion = _identificacion;
+                p.Nombre = _nombre;
+                p.NombreComercial = _nombreComercial;
+                p.CorreoElectronico = _correoElectronico;
+                p.FechaNacimiento = _fechaNacimiento;
+                p.TelCodïgoPais = _telCodïgoPais;
+                p.TelNumero = _TelNumero;
+                p.FaxCodïgoPais = _faxCodigoPais;
+                p.FaxNumero = _faxNumero;
+                p.DireccionOtrasSenas = _direccionOtrasSenas;
+                p.EsCorreoValido = _esCorreoValido;
+                p.Activo = _activo;
+                return Interface_persona.Update(p, _id);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
     }
 }
