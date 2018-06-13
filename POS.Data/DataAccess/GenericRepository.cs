@@ -139,9 +139,9 @@ namespace POS.Data.DataAccess
             return await _context.SaveChangesAsync();
         }
 
-        public virtual IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        public virtual List<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            IQueryable<T> query = _context.Set<T>().Where(predicate);
+            List<T> query = _context.Set<T>().Where(predicate).ToList<T>();
             return query;
         }
 
@@ -150,7 +150,7 @@ namespace POS.Data.DataAccess
             return await _context.Set<T>().Where(predicate).ToListAsync();
         }
 
-        public IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        public List<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
 
             IQueryable<T> queryable = GetAll();
@@ -160,7 +160,7 @@ namespace POS.Data.DataAccess
                 queryable = queryable.Include<T, object>(includeProperty);
             }
 
-            return queryable;
+            return queryable.ToList<T>();
         }
 
         private bool disposed = false;

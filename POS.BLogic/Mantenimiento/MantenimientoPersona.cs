@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace POS.BLogic.MantenimientoProducto
+namespace POS.BLogic.Mantenimiento
 {
     public class MantenimientoPersona
     {
@@ -27,8 +27,8 @@ namespace POS.BLogic.MantenimientoProducto
             Persona Result;           
             try
             {
-                Result = (Persona)persona.FindBy(x => x.Identificacion == _cedula);
-                return Result;
+               // Result = (Persona)persona.FindBy(x => x.Identificacion == _cedula);
+                return null;
             }
             catch (Exception _ex)
             {
@@ -46,8 +46,8 @@ namespace POS.BLogic.MantenimientoProducto
             //var provedor = servicios.BuildServiceProvider();
             try
             {
-                Result = (Ubicacion)ubicacion.FindBy(x => x.Codigo == _codigo);
-                return Result;
+               // Result = (Ubicacion)ubicacion.FindBy(x => x.Codigo == _codigo);
+                return null;
             }
             catch (Exception _ex)
             {
@@ -65,8 +65,8 @@ namespace POS.BLogic.MantenimientoProducto
             //var provedor = servicios.BuildServiceProvider();
             try
             {
-                Result = (TipoFigura)tipoFigura.FindBy(x => x.Id == _id);
-                return Result;
+                //Result = (TipoFigura)tipoFigura.FindBy(x => x.Id == _id);
+                return null;
             }
             catch (Exception _ex)
             {

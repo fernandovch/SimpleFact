@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using POS.BLogic.MantenimientoProducto;
+using POS.BLogic.Mantenimiento;
 using POS.Data.DataAccess;
 using POS.Data.Models;
 using System;
@@ -39,9 +39,11 @@ namespace UnitTestBusinessLogic
         public void TestMethod1()
         {
             SimpleFactContext context = new SimpleFactContext();
-            IGenericRepository<Producto> producto = new GenericRepository<Producto>(context);
-            var algo = producto.Get(3);
-            
+          /*  IGenericRepository<Producto> producto = new GenericRepository<Producto>(context);
+            MantenimientoProducto mantepro = new MantenimientoProducto(producto);
+            string par = "Codigo";
+            string val = "1";
+            var algo = mantepro.BuscarProducto(par, val);*/
             
             
         }

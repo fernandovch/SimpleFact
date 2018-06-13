@@ -20,12 +20,12 @@ namespace POS.Data.DataAccess
         ICollection<T> FindAll(Expression<Func<T, bool>> match);
         Task<ICollection<T>> FindAllAsync(Expression<Func<T, bool>> match);
         Task<T> FindAsync(Expression<Func<T, bool>> match);
-        IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
+        List<T> FindBy(Expression<Func<T, bool>> predicate);
         Task<ICollection<T>> FindByAsyn(Expression<Func<T, bool>> predicate);
         T Get(int id);
         IQueryable<T> GetAll();
         Task<ICollection<T>> GetAllAsyn();
-        IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties);
+        List<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties);
         Task<T> GetAsync(int id);
         void Save();
         Task<int> SaveAsync();
