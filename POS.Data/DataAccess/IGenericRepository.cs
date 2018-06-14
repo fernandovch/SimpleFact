@@ -31,5 +31,6 @@ namespace POS.Data.DataAccess
         Task<int> SaveAsync();
         T Update(T t, object key);
         Task<T> UpdateAsyn(T t, object key);
+        int GetMaxValue(Func<T, int> match);
     }
 }

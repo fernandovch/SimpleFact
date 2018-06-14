@@ -21,8 +21,8 @@ namespace UnitTestBusinessLogic
             return config;
         }
 
-     
-        [TestMethod]
+            
+       /* [TestMethod]
         public void TestMethod1()
         {
             SimpleFactContext context = new SimpleFactContext();
@@ -53,8 +53,39 @@ namespace UnitTestBusinessLogic
             //Producto  res = manteprod.IngresarProducto(8, 1, 1,null,1, "Nombre Prod 2", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true);
             
             /* Modificar Producto */ 
-            Producto mod = manteprod.ModificarProducto(1, 1, 1, 1, 1, "Nombre Prod dos", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true,4);
-        }
+           // Producto mod = manteprod.ModificarProducto(1, 1, 1, 1, 1, "Nombre Prod dos", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true,4);
+
+            /* Buscar Proveedor */
+           // List<Persona> listProveedores = manteprod.SeleccionarProveedores();
+
+        //}
+
+        /*[TestMethod]
+        public void TestMethod2()
+        {
+            SimpleFactContext context = new SimpleFactContext();
+            IGenericRepository<Producto> Interface_productos = new GenericRepository<Producto>(context);
+            IGenericRepository<Persona> Interface_persona = new GenericRepository<Persona>(context);
+            IGenericRepository<ProductoCategoria> Interface_categoriaProducto = new GenericRepository<ProductoCategoria>(context);
+            IGenericRepository<TipoUnidadesMedida> Interface_unidadMedida = new GenericRepository<TipoUnidadesMedida>(context);
+            IGenericRepository<TipoImpuestos> Interface_impuestos = new GenericRepository<TipoImpuestos>(context);
+            IGenericRepository<TipoExoneraciones> Interface_exoneraciones = new GenericRepository<TipoExoneraciones>(context);
+            IGenericRepository<MovimientosInventario> Interface_movimientoInventario = new GenericRepository<MovimientosInventario>(context);
+            IGenericRepository<RazonMovimientoInventario> Interface_razonesMovInventario = new GenericRepository<RazonMovimientoInventario>(context);
+            IGenericRepository<LogErrores> Interface_logErrores = new GenericRepository<LogErrores>(context2);
+            IGenericRepository<Ubicacion> Interface_ubicacion = new GenericRepository<Ubicacion>(context);
+            IGenericRepository<TipoCedula> Interface_tipoCedula = new GenericRepository<TipoCedula>(context);
+            IGenericRepository<TipoFigura> Interface_tipofigura = new GenericRepository<TipoFigura>(context);
+            IGenericRepository<ServicioFacturaElectronica> Interface_facturaElectronica = new GenericRepository<ServicioFacturaElectronica>(context);
+            IGenericRepository<EncabezadoFactura> Interface_encabezadoF = new GenericRepository<EncabezadoFactura>(context);
+            IGenericRepository<DetalleFactura> Interface_detalleF = new GenericRepository<DetalleFactura>(context);
+            IGenericRepository<TipoPago> Interface_tipoPago = new GenericRepository<TipoPago>(context);
+            IGenericRepository<TipoCondicionVenta> Interface_tipoCondVenta = new GenericRepository<TipoCondicionVenta>(context);
+            MantenimientoProducto manteprod = new MantenimientoProducto(Interface_productos, Interface_persona, Interface_categoriaProducto, Interface_unidadMedida, Interface_impuestos, Interface_exoneraciones, Interface_movimientoInventario, Interface_razonesMovInventario, Interface_logErrores);
+            /* Ingresar Producto */
+           /* Producto  res = manteprod.IngresarProducto(8, 1, 1,null,1, "Nombre Prod 2", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true);
+            Assert.AreNotEqual(res.Id, 0);
+        }*/
     }
 }
 

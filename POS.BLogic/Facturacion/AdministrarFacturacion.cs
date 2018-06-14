@@ -202,6 +202,24 @@ namespace POS.BLogic.Facturacion
             }
         }
 
+        /// <summary>
+        /// Obtiene el numero maximo consecutivo ingresado en una factura, para poder continuar la numeración.
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerConsecutivo()
+        {
+            int consecutivo;
+            try
+            {
+                consecutivo = Interface_encabezadoFactura.GetMaxValue(x => int.Parse(x.NumeroConsecutivo));
+                return consecutivo;
+            }
+            catch(Exception _ex)
+            {
+                return 0;
+            }
+        }
+
 
                
     }
