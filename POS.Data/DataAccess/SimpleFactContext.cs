@@ -162,7 +162,7 @@ namespace POS.Data.DataAccess
                             .HasColumnName("Impuesto_Tarifa")
                             .HasColumnType("decimal(4, 2)");
 
-                entity.Property(e => e.ImpuestpMonto)
+                entity.Property(e => e.ImpuestoMonto)
                             .HasColumnName("Impuestp_Monto")
                             .HasColumnType("decimal(18, 5)");
 
@@ -329,8 +329,8 @@ namespace POS.Data.DataAccess
 
                 entity.Property(e => e.EsCorreoValido).HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.FaxCodïgoPais)
-                                    .HasColumnName("Fax_CodïgoPais")
+                entity.Property(e => e.FaxCodigoPais)
+                                    .HasColumnName("Fax_CodigoPais")
                                     .HasMaxLength(3)
                                     .IsUnicode(false);
 
@@ -355,8 +355,8 @@ namespace POS.Data.DataAccess
                                     .HasMaxLength(250)
                                     .IsUnicode(false);
 
-                entity.Property(e => e.TelCodïgoPais)
-                                    .HasColumnName("Tel_CodïgoPais")
+                entity.Property(e => e.TelCodigoPais)
+                                    .HasColumnName("Tel_CodigoPais")
                                     .HasMaxLength(3)
                                     .IsUnicode(false);
 

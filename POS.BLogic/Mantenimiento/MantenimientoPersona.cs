@@ -74,7 +74,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_nombreComercial"></param>
         /// <param name="_correoElectronico"></param>
         /// <param name="_fechaNacimiento"></param>
-        /// <param name="_telCodïgoPais"></param>
+        /// <param name="_telCodigoPais"></param>
         /// <param name="_TelNumero"></param>
         /// <param name="_faxCodigoPais"></param>
         /// <param name="_faxNumero"></param>
@@ -83,7 +83,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_activo"></param>
         /// <returns></returns>
         public Persona AgregarPersona(int _idIdentificacion, int _idUbicacion, int _idTipoFigura, string _identificacion, string _nombre,
-            string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodïgoPais, string _TelNumero, 
+            string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodigoPais, string _TelNumero, 
             string _faxCodigoPais, string _faxNumero, string _direccionOtrasSenas, bool _esCorreoValido, bool _activo)
         {
             Persona p;
@@ -98,9 +98,9 @@ namespace POS.BLogic.Mantenimiento
                 p.NombreComercial = _nombreComercial;
                 p.CorreoElectronico = _correoElectronico;
                 p.FechaNacimiento = _fechaNacimiento;
-                p.TelCodïgoPais = _telCodïgoPais;
+                p.TelCodigoPais = _telCodigoPais;
                 p.TelNumero = _TelNumero;
-                p.FaxCodïgoPais = _faxCodigoPais;
+                p.FaxCodigoPais = _faxCodigoPais;
                 p.FaxNumero = _faxNumero;
                 p.DireccionOtrasSenas = _direccionOtrasSenas;
                 p.EsCorreoValido = _esCorreoValido;
@@ -125,7 +125,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_nombreComercial"></param>
         /// <param name="_correoElectronico"></param>
         /// <param name="_fechaNacimiento"></param>
-        /// <param name="_telCodïgoPais"></param>
+        /// <param name="_telCodigoPais"></param>
         /// <param name="_TelNumero"></param>
         /// <param name="_faxCodigoPais"></param>
         /// <param name="_faxNumero"></param>
@@ -135,7 +135,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_id"></param>
         /// <returns></returns>
         public Persona ModificarPersona(int? _idIdentificacion, int? _idUbicacion, int _idTipoFigura, string _identificacion, string _nombre,
-          string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodïgoPais, string _TelNumero,
+          string _nombreComercial, string _correoElectronico, DateTime _fechaNacimiento, string _telCodigoPais, string _TelNumero,
           string _faxCodigoPais, string _faxNumero, string _direccionOtrasSenas, bool _esCorreoValido, bool _activo, int _id)
         {
             Persona p;
@@ -150,9 +150,9 @@ namespace POS.BLogic.Mantenimiento
                 p.NombreComercial = _nombreComercial;
                 p.CorreoElectronico = _correoElectronico;
                 p.FechaNacimiento = _fechaNacimiento;
-                p.TelCodïgoPais = _telCodïgoPais;
+                p.TelCodigoPais = _telCodigoPais;
                 p.TelNumero = _TelNumero;
-                p.FaxCodïgoPais = _faxCodigoPais;
+                p.FaxCodigoPais = _faxCodigoPais;
                 p.FaxNumero = _faxNumero;
                 p.DireccionOtrasSenas = _direccionOtrasSenas;
                 p.EsCorreoValido = _esCorreoValido;
