@@ -206,10 +206,4 @@ namespace POS.BLogic.Facturacion
                
     }
 
-    public enum EstadoFactura
-    {
-        Activa = 'A',
-        Cancelada = 'C',
-        Pendiente = 'P'
-    }
 }

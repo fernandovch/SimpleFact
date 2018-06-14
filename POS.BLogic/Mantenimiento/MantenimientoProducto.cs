@@ -1,9 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using POS.BLogic.Utilidades;
 using POS.Data.DataAccess;
 using POS.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using static POS.BLogic.Utilidades.TiposEnum;
 
 namespace POS.BLogic.Mantenimiento
 {
@@ -18,6 +20,8 @@ namespace POS.BLogic.Mantenimiento
         private IGenericRepository<TipoExoneraciones> Interface_exoneraciones;
         private IGenericRepository<MovimientosInventario> Interface_movimientoInventario;
         private IGenericRepository<RazonMovimientoInventario> Interface_razonesMovInventario;
+        private IGenericRepository<LogErrores> Interface_logErrores;
+        private ManejoErrores log;
 
         public MantenimientoProducto( IGenericRepository<Producto> produc,
         IGenericRepository<Persona> _persona,
@@ -26,7 +30,8 @@ namespace POS.BLogic.Mantenimiento
         IGenericRepository<TipoImpuestos> _impuestos,
         IGenericRepository<TipoExoneraciones> _exoneraciones,
         IGenericRepository<MovimientosInventario> _movimientoInventario,
-        IGenericRepository<RazonMovimientoInventario> _razonesMovInventario)
+        IGenericRepository<RazonMovimientoInventario> _razonesMovInventario,
+        IGenericRepository<LogErrores> _logErrores)
         {
             Interface_productos = produc;
             Interface_persona = _persona;
@@ -36,6 +41,7 @@ namespace POS.BLogic.Mantenimiento
             Interface_exoneraciones = _exoneraciones;
             Interface_movimientoInventario = _movimientoInventario;
             Interface_razonesMovInventario = _razonesMovInventario;
+            Interface_logErrores = _logErrores;
 
         }
 
@@ -55,6 +61,8 @@ namespace POS.BLogic.Mantenimiento
             }
             catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
             
@@ -72,8 +80,10 @@ namespace POS.BLogic.Mantenimiento
                 ListProveedores = Interface_persona.FindBy(x => x.Activo == true);
                 return ListProveedores;
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -90,8 +100,10 @@ namespace POS.BLogic.Mantenimiento
                 ListProdCategoria = Interface_categoriaProducto.FindBy(x => x.Activo == true);
                 return ListProdCategoria;
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -109,8 +121,10 @@ namespace POS.BLogic.Mantenimiento
                 ListTipoImp = Interface_impuestos.FindBy(x => x.Excepcion == false);
                 return ListTipoImp;
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -128,8 +142,10 @@ namespace POS.BLogic.Mantenimiento
                 ListTipoExoneraciones = Interface_exoneraciones.FindBy(x => x.Activo == true);
                 return ListTipoExoneraciones;
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -141,7 +157,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_producto"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public Producto ModificarProducto(int _idCategoria, int _idProveedor, int _idUnidadMedida, string _nombre, string _detalle,
+        public Producto ModificarProducto(int _idCategoria, int _idProveedor, int? _idImpuesto, int? _idExoneracion, int _idUnidadMedida, string _nombre, string _detalle,
              int _cantDisponible, decimal _precioUnitario, decimal _costoUnitario, string _codigo, DateTime _fechaModificacion, string _gravado, bool _activo, int _id)
         {
             Producto prodActualizar;
@@ -149,8 +165,11 @@ namespace POS.BLogic.Mantenimiento
             try
             {
                 prodActualizar = new Producto();
+                prodActualizar.Id = _id;
                 prodActualizar.IdCategoria = _idCategoria;
                 prodActualizar.IdProveedor = _idProveedor;
+                prodActualizar.IdImpuesto = _idImpuesto;
+                prodActualizar.IdExoneracion = _idExoneracion;
                 prodActualizar.IdUnidadMedida = _idUnidadMedida;
                 prodActualizar.Nombre = _nombre;
                 prodActualizar.Detalle = _detalle;
@@ -165,8 +184,10 @@ namespace POS.BLogic.Mantenimiento
                 //productResult = repositorioProducto.Update(_producto, key);
                 
             }
-            catch
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -177,7 +198,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_producto"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public Producto IngresarProducto(int _idCategoria, int _idProveedor, int _idUnidadMedida, string _nombre, string _detalle,
+        public Producto IngresarProducto(int _idCategoria, int _idProveedor, int? _idImpuesto, int? _idExoneracion, int _idUnidadMedida, string _nombre, string _detalle,
              int _cantDisponible, decimal _precioUnitario, decimal _costoUnitario, string _codigo, DateTime _fechaModificacion, string _gravado, bool _activo)
         {
             Producto prodActualizar;
@@ -187,6 +208,8 @@ namespace POS.BLogic.Mantenimiento
                 prodActualizar = new Producto();
                 prodActualizar.IdCategoria = _idCategoria;
                 prodActualizar.IdProveedor = _idProveedor;
+                prodActualizar.IdImpuesto = _idImpuesto;
+                prodActualizar.IdExoneracion = _idExoneracion;
                 prodActualizar.IdUnidadMedida = _idUnidadMedida;
                 prodActualizar.Nombre = _nombre;
                 prodActualizar.Detalle = _detalle;
@@ -202,8 +225,10 @@ namespace POS.BLogic.Mantenimiento
                 //productResult = repositorioProducto.Update(_producto, key);
 
             }
-            catch
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
         }
@@ -229,8 +254,10 @@ namespace POS.BLogic.Mantenimiento
                 return Interface_movimientoInventario.Add(movInventario);
 
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
         }
@@ -247,8 +274,10 @@ namespace POS.BLogic.Mantenimiento
                 razones = Interface_razonesMovInventario.FindBy(x => x.Activo == true);
                 return razones;
             }
-            catch(Exception ex)
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
         }
@@ -264,8 +293,10 @@ namespace POS.BLogic.Mantenimiento
                 productResult = Interface_productos.FindBy(x => x.Codigo == "1");
                 return productResult;
             }
-            catch
+            catch(Exception _ex)
             {
+                log = new ManejoErrores(Interface_logErrores);
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
         }

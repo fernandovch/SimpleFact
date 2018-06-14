@@ -96,13 +96,15 @@ namespace POS.Data.DataAccess
         {
             if (t == null)
                 return null;
-            T exist = _context.Set<T>().Find(key);
-            if (exist != null)
-            {
-                _context.Entry(exist).CurrentValues.SetValues(t);
-                _context.SaveChanges();
-            }
-            return exist;
+            /* T exist = _context.Set<T>().Find(key);
+             if (exist != null)
+             {
+                 _context.Entry(exist).CurrentValues.SetValues(t);
+                 _context.SaveChanges();
+             }*/
+            _context.Set<T>().Update(t);
+            _context.SaveChanges();
+            return t;
         }
 
         public virtual async Task<T> UpdateAsyn(T t, object key)
