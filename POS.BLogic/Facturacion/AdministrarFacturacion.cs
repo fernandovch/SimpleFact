@@ -112,7 +112,7 @@ namespace POS.BLogic.Facturacion
         /// <param name="_exoneracionMontoImpuesto"></param>
         /// <param name="_exoneracionPorcentajeCompra"></param>
         /// <param name="_impuestoTarifa"></param>
-        /// <param name="_impuestpMonto"></param>
+        /// <param name="_impuestoMonto"></param>
         /// <param name="_montoDescuento"></param>
         /// <param name="_naturalezaDescuento"></param>
         /// <param name="_subTotal"></param>
@@ -120,7 +120,7 @@ namespace POS.BLogic.Facturacion
         /// <returns></returns>
         public DetalleFactura CrearDetalleFactura(int _idFactura, int _idProducto, int _cantidad, string _exoneracionNombreInstitucion, 
             DateTime? _exoneracionFechaEmision, decimal? _exoneracionMontoImpuesto, int? _exoneracionPorcentajeCompra, decimal? _impuestoTarifa,
-            decimal? _impuestpMonto, decimal? _montoDescuento, decimal? _naturalezaDescuento, decimal? _subTotal, decimal? _montoTotal)
+            decimal? _impuestoMonto, decimal? _montoDescuento, decimal? _naturalezaDescuento, decimal? _subTotal, decimal? _montoTotal)
         {
             DetalleFactura detalle;
             try
@@ -134,7 +134,7 @@ namespace POS.BLogic.Facturacion
                 detalle.ExoneracionMontoImpuesto = _exoneracionMontoImpuesto;
                 detalle.ExoneracionPorcentajeCompra = _exoneracionPorcentajeCompra;
                 detalle.ImpuestoTarifa = _impuestoTarifa;
-                detalle.ImpuestpMonto = _impuestpMonto;
+                detalle.ImpuestoMonto = _impuestoMonto;
                 detalle.MontoDescuento = _montoDescuento;
                 detalle.NaturalezaDescuento = _naturalezaDescuento;
                 detalle.SubTotal = _subTotal;
@@ -199,6 +199,24 @@ namespace POS.BLogic.Facturacion
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene el numero maximo consecutivo ingresado en una factura, para poder continuar la numeración.
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerConsecutivo()
+        {
+            int consecutivo;
+            try
+            {
+                consecutivo = Interface_encabezadoFactura.GetMaxValue(x => int.Parse(x.NumeroConsecutivo));
+                return consecutivo;
+            }
+            catch(Exception _ex)
+            {
+                return 0;
             }
         }
 

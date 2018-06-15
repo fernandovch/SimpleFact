@@ -16,7 +16,7 @@ namespace POS.Data.Models
         public decimal? ExoneracionMontoImpuesto { get; set; }
         public int? ExoneracionPorcentajeCompra { get; set; }
         public decimal? ImpuestoTarifa { get; set; }
-        public decimal? ImpuestpMonto { get; set; }
+        public decimal? ImpuestoMonto { get; set; }
         public decimal? MontoDescuento { get; set; }
         public decimal? NaturalezaDescuento { get; set; }
         public decimal? SubTotal { get; set; }

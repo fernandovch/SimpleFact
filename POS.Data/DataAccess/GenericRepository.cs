@@ -96,14 +96,13 @@ namespace POS.Data.DataAccess
         {
             if (t == null)
                 return null;
-            /* T exist = _context.Set<T>().Find(key);
+             T exist = _context.Set<T>().Find(key);
              if (exist != null)
              {
-                 _context.Entry(exist).CurrentValues.SetValues(t);
-                 _context.SaveChanges();
-             }*/
-            _context.Set<T>().Update(t);
-            _context.SaveChanges();
+                _context.Set<T>().Update(t);
+                _context.SaveChanges();
+            }
+           
             return t;
         }
 
@@ -146,6 +145,16 @@ namespace POS.Data.DataAccess
             List<T> query = _context.Set<T>().Where(predicate).ToList<T>();
             return query;
         }
+
+        
+
+        public int GetMaxValue(Func<T, int> columnSelector)
+        {
+                var GetMaxId = _context.Set<T>().Max(columnSelector);
+                return GetMaxId;
+        }
+
+
 
         public virtual async Task<ICollection<T>> FindByAsyn(Expression<Func<T, bool>> predicate)
         {
