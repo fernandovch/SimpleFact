@@ -12,7 +12,7 @@ namespace UnitTestBusinessLogic
     public class UnitTest_mantenimientoProducto
     {
         [TestMethod]
-        public void ValidaSiNoEsNullCuandoInsertaProducto()
+        public void InsertarProducto_ConInformacionValida()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
@@ -31,7 +31,7 @@ namespace UnitTestBusinessLogic
         }
 
         [TestMethod]
-        public void ValidaSiDevuelveNullCuandoInsertaProductoyConError()
+        public void InsertarProducto_ConCategoriaQueNoExiste()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
@@ -50,7 +50,7 @@ namespace UnitTestBusinessLogic
         }
 
         [TestMethod]
-        public void ValidaBusquedaProductoPorCodigo_CodigoExistente()
+        public void BuscarProductoXCodigoExistente()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
@@ -73,7 +73,7 @@ namespace UnitTestBusinessLogic
               
 
         [TestMethod]
-        public void ValidaBusquedaFallidaProductoPorCodigo_CodigoExistente()
+        public void BuscarProductoXCodigoQueNoExiste()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
@@ -92,7 +92,7 @@ namespace UnitTestBusinessLogic
         }
 
         [TestMethod]
-        public void ValidaBusquedaProveedores_CuandoNoEsNulo()
+        public void BuscarProveedoresCuandoHayRegistrosActivos()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
@@ -111,7 +111,26 @@ namespace UnitTestBusinessLogic
         }
 
         [TestMethod]
-        public void ValidaBusquedaProveedores_CuandoEsNulo()
+        public void BusquedaProveedoresCuandoNoHayRegistrosActivos()
+        {
+            SimpleFactContext context = new SimpleFactContext();
+            SimpleFactContext context2 = new SimpleFactContext();
+            IGenericRepository<Producto> Interface_productos = new GenericRepository<Producto>(context);
+            IGenericRepository<Persona> Interface_persona = new GenericRepository<Persona>(context);
+            IGenericRepository<ProductoCategoria> Interface_categoriaProducto = new GenericRepository<ProductoCategoria>(context);
+            IGenericRepository<TipoUnidadesMedida> Interface_unidadMedida = new GenericRepository<TipoUnidadesMedida>(context);
+            IGenericRepository<TipoImpuestos> Interface_impuestos = new GenericRepository<TipoImpuestos>(context);
+            IGenericRepository<TipoExoneraciones> Interface_exoneraciones = new GenericRepository<TipoExoneraciones>(context);
+            IGenericRepository<MovimientosInventario> Interface_movimientoInventario = new GenericRepository<MovimientosInventario>(context);
+            IGenericRepository<RazonMovimientoInventario> Interface_razonesMovInventario = new GenericRepository<RazonMovimientoInventario>(context);
+            IGenericRepository<LogErrores> Interface_logErrores = new GenericRepository<LogErrores>(context2);
+            MantenimientoProducto manteprod = new MantenimientoProducto(Interface_productos, Interface_persona, Interface_categoriaProducto, Interface_unidadMedida, Interface_impuestos, Interface_exoneraciones, Interface_movimientoInventario, Interface_razonesMovInventario, Interface_logErrores);
+            var listaP = manteprod.SeleccionarProveedores();
+            Assert.IsNull(listaP);
+        }
+
+        [TestMethod]
+        public void BusquedaCategoriaProductos_CuandoHayRegistrosActivos()
         {
             SimpleFactContext context = new SimpleFactContext();
             SimpleFactContext context2 = new SimpleFactContext();
