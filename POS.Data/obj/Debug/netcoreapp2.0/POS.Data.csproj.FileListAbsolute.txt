@@ -20,3 +20,16 @@ D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CopyComplete
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.dll
 D:\POS Git\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.pdb
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll.config
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.deps.json
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.dll
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\POS.Data.pdb
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.dll
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Protocols.xml
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csprojAssemblyReference.cache
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CoreCompileInputs.cache
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfoInputs.cache
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.AssemblyInfo.cs
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.csproj.CopyComplete
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.dll
+D:\SimpleFact Project\GITHUB Files\POS GIT\SimpleFact\POS.Data\obj\Debug\netcoreapp2.0\POS.Data.pdb

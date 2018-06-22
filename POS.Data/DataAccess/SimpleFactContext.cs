@@ -18,7 +18,8 @@ namespace POS.Data.DataAccess
         {
 
             //optionsBuilder.UseSqlServer(configuration.GetConnectionString("SimpleFactConexion").ToString());
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-J4IBG5LV;Initial Catalog=SimpleFact;User ID=sa;Password=Mab11241464$");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7KB7TBQ\SQLEXPRESS;Initial Catalog=SimpleFact;User ID=sa;Password=SqL1205$");
+            optionsBuilder.EnableSensitiveDataLogging(true);
 
         }
 

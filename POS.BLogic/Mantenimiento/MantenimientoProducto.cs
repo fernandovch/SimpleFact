@@ -5,7 +5,6 @@ using POS.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using static POS.BLogic.Utilidades.TiposEnum;
 
 namespace POS.BLogic.Mantenimiento
 {
@@ -56,8 +55,8 @@ namespace POS.BLogic.Mantenimiento
             
             try
             {
-                productResult = Interface_productos.FindBy(x => x.Codigo == _codigo);               
-                return null;
+                return productResult = Interface_productos.FindBy(x => x.Codigo == _codigo);               
+                //return null;
             }
             catch(Exception _ex)
             {
@@ -165,7 +164,7 @@ namespace POS.BLogic.Mantenimiento
             try
             {
                 prodActualizar = new Producto();
-                prodActualizar.Id = _id;
+               // prodActualizar.Id = _id;
                 prodActualizar.IdCategoria = _idCategoria;
                 prodActualizar.IdProveedor = _idProveedor;
                 prodActualizar.IdImpuesto = _idImpuesto;
@@ -241,7 +240,7 @@ namespace POS.BLogic.Mantenimiento
         /// <param name="_cantActualizada"></param>
         /// <param name="_idUser"></param>
         /// <returns></returns>
-        public MovimientosInventario MovimientosInventario(int _idProducto, int _idRazon, int _cantActualizada, string _idUser)
+        public MovimientosInventario InsertarMovimientosInventario(int _idProducto, int _idRazon, int _cantActualizada, string _idUser, string _tipoMovimiento)
         {
             MovimientosInventario movInventario;
             try
@@ -249,8 +248,10 @@ namespace POS.BLogic.Mantenimiento
                 movInventario = new MovimientosInventario();
                 movInventario.IdProducto = _idProducto;
                 movInventario.IdRazonMovimiento = _idRazon;
+                movInventario.TipoMovimiento = _tipoMovimiento;
                 movInventario.IdUsuario = _idUser;
                 movInventario.Cantidad = _cantActualizada;
+                movInventario.Fecha = DateTime.Now;
                 return Interface_movimientoInventario.Add(movInventario);
 
             }

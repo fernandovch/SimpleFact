@@ -96,6 +96,7 @@ namespace POS.Data.DataAccess
         {
             if (t == null)
                 return null;
+            
              T exist = _context.Set<T>().Find(key);
              if (exist != null)
              {

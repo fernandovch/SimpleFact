@@ -3440,11 +3440,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\POS Git\\SimpleFact\\POS.Data\\POS.Data.csproj",
+      "projectUniqueName": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Data\\POS.Data.csproj",
       "projectName": "POS.Data",
-      "projectPath": "D:\\POS Git\\SimpleFact\\POS.Data\\POS.Data.csproj",
+      "projectPath": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Data\\POS.Data.csproj",
       "packagesPath": "C:\\Users\\Nela\\.nuget\\packages\\",
-      "outputPath": "D:\\POS Git\\SimpleFact\\POS.Data\\obj\\",
+      "outputPath": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

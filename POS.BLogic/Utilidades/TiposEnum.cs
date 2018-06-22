@@ -4,8 +4,6 @@ using System.Text;
 
 namespace POS.BLogic.Utilidades
 {
-    public class TiposEnum
-    {
         public enum EstadoFactura
         {
             Activa = 'A',
@@ -20,5 +18,10 @@ namespace POS.BLogic.Utilidades
             MantenimientoPersona = 3,
             MantenimientoFacturaElectronica = 4
         }
-    }
+
+    public enum TipoMovimiento
+    {
+        Ingreso = 'I'
+     }
+
 }

@@ -13131,11 +13131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\POS Git\\SimpleFact\\POS.Web\\POS.Web.csproj",
+      "projectUniqueName": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Web\\POS.Web.csproj",
       "projectName": "POS.Web",
-      "projectPath": "D:\\POS Git\\SimpleFact\\POS.Web\\POS.Web.csproj",
+      "projectPath": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Web\\POS.Web.csproj",
       "packagesPath": "C:\\Users\\Nela\\.nuget\\packages\\",
-      "outputPath": "D:\\POS Git\\SimpleFact\\POS.Web\\obj\\",
+      "outputPath": "D:\\SimpleFact Project\\GITHUB Files\\POS GIT\\SimpleFact\\POS.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
