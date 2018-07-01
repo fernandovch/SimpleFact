@@ -7,6 +7,7 @@ using POS.BLogic.Mantenimiento;
 using POS.Data.DataAccess;
 using POS.Data.Models;
 using System;
+using System.Collections.Generic;
 
 namespace UnitTestBusinessLogic
 {
@@ -22,70 +23,39 @@ namespace UnitTestBusinessLogic
         }
 
             
-       /* [TestMethod]
+      [TestMethod]
         public void TestMethod1()
         {
-            SimpleFactContext context = new SimpleFactContext();
-            SimpleFactContext context2 = new SimpleFactContext();
-            IGenericRepository<Producto> Interface_productos = new GenericRepository<Producto>(context);
-            IGenericRepository<Persona> Interface_persona = new GenericRepository<Persona>(context);
-            IGenericRepository<ProductoCategoria> Interface_categoriaProducto = new GenericRepository<ProductoCategoria>(context);
-            IGenericRepository<TipoUnidadesMedida> Interface_unidadMedida = new GenericRepository<TipoUnidadesMedida>(context);
-            IGenericRepository<TipoImpuestos> Interface_impuestos = new GenericRepository<TipoImpuestos>(context);
-            IGenericRepository<TipoExoneraciones> Interface_exoneraciones = new GenericRepository<TipoExoneraciones>(context);
-            IGenericRepository<MovimientosInventario> Interface_movimientoInventario = new GenericRepository<MovimientosInventario>(context);
-            IGenericRepository<RazonMovimientoInventario> Interface_razonesMovInventario = new GenericRepository<RazonMovimientoInventario>(context);
-            IGenericRepository<LogErrores> Interface_logErrores = new GenericRepository<LogErrores>(context2);
-            IGenericRepository<Ubicacion> Interface_ubicacion = new GenericRepository<Ubicacion>(context);
-            IGenericRepository<TipoCedula> Interface_tipoCedula = new GenericRepository<TipoCedula>(context);
-            IGenericRepository<TipoFigura> Interface_tipofigura = new GenericRepository<TipoFigura>(context);
-            IGenericRepository<ServicioFacturaElectronica> Interface_facturaElectronica = new GenericRepository<ServicioFacturaElectronica>(context);
-            IGenericRepository<EncabezadoFactura> Interface_encabezadoF = new GenericRepository<EncabezadoFactura>(context);
-            IGenericRepository<DetalleFactura> Interface_detalleF = new GenericRepository<DetalleFactura>(context);
-            IGenericRepository<TipoPago> Interface_tipoPago = new GenericRepository<TipoPago>(context);
-            IGenericRepository<TipoCondicionVenta> Interface_tipoCondVenta = new GenericRepository<TipoCondicionVenta>(context);
+            Persona _sujeto = new Persona { 
+                IdIdentificacion = 1,
+                IdUbicacion = 1,
+                IdTipoFigura = 1,
+                Identificacion = "123456",
+                Nombre = "Juan",
+                NombreComercial = "",
+                CorreoElectronico = "",
+                FechaNacimiento = DateTime.Now.Date,
+                Tel_CodigoPais = "",
+                Tel_Numero = "",
+                Fax_CodigoPais = "",
+                Fax_Numero = "",
+                Direccion_OtrasSenas = "",
+                EsCorreoValido = true,
+                Activo = true
 
-            // **************************************************** Pruebas mantenimiento producto ****************************************************
+            };
 
-            MantenimientoProducto manteprod = new MantenimientoProducto(Interface_productos, Interface_persona, Interface_categoriaProducto, Interface_unidadMedida, Interface_impuestos, Interface_exoneraciones, Interface_movimientoInventario, Interface_razonesMovInventario, Interface_logErrores);
+            MantenimientoPersona mantenimientoPersona = new MantenimientoPersona();
+
+
 
             /* Ingresar Producto */
-            //Producto  res = manteprod.IngresarProducto(8, 1, 1,null,1, "Nombre Prod 2", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true);
-            
-            /* Modificar Producto */ 
-           // Producto mod = manteprod.ModificarProducto(1, 1, 1, 1, 1, "Nombre Prod dos", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true,4);
 
-            /* Buscar Proveedor */
-           // List<Persona> listProveedores = manteprod.SeleccionarProveedores();
+            Persona resultado = mantenimientoPersona.AgregarPersona(_sujeto);
+            Assert.AreEqual<Persona>(resultado, _sujeto );
+        }
 
-        //}
-
-        /*[TestMethod]
-        public void TestMethod2()
-        {
-            SimpleFactContext context = new SimpleFactContext();
-            IGenericRepository<Producto> Interface_productos = new GenericRepository<Producto>(context);
-            IGenericRepository<Persona> Interface_persona = new GenericRepository<Persona>(context);
-            IGenericRepository<ProductoCategoria> Interface_categoriaProducto = new GenericRepository<ProductoCategoria>(context);
-            IGenericRepository<TipoUnidadesMedida> Interface_unidadMedida = new GenericRepository<TipoUnidadesMedida>(context);
-            IGenericRepository<TipoImpuestos> Interface_impuestos = new GenericRepository<TipoImpuestos>(context);
-            IGenericRepository<TipoExoneraciones> Interface_exoneraciones = new GenericRepository<TipoExoneraciones>(context);
-            IGenericRepository<MovimientosInventario> Interface_movimientoInventario = new GenericRepository<MovimientosInventario>(context);
-            IGenericRepository<RazonMovimientoInventario> Interface_razonesMovInventario = new GenericRepository<RazonMovimientoInventario>(context);
-            IGenericRepository<LogErrores> Interface_logErrores = new GenericRepository<LogErrores>(context2);
-            IGenericRepository<Ubicacion> Interface_ubicacion = new GenericRepository<Ubicacion>(context);
-            IGenericRepository<TipoCedula> Interface_tipoCedula = new GenericRepository<TipoCedula>(context);
-            IGenericRepository<TipoFigura> Interface_tipofigura = new GenericRepository<TipoFigura>(context);
-            IGenericRepository<ServicioFacturaElectronica> Interface_facturaElectronica = new GenericRepository<ServicioFacturaElectronica>(context);
-            IGenericRepository<EncabezadoFactura> Interface_encabezadoF = new GenericRepository<EncabezadoFactura>(context);
-            IGenericRepository<DetalleFactura> Interface_detalleF = new GenericRepository<DetalleFactura>(context);
-            IGenericRepository<TipoPago> Interface_tipoPago = new GenericRepository<TipoPago>(context);
-            IGenericRepository<TipoCondicionVenta> Interface_tipoCondVenta = new GenericRepository<TipoCondicionVenta>(context);
-            MantenimientoProducto manteprod = new MantenimientoProducto(Interface_productos, Interface_persona, Interface_categoriaProducto, Interface_unidadMedida, Interface_impuestos, Interface_exoneraciones, Interface_movimientoInventario, Interface_razonesMovInventario, Interface_logErrores);
-            /* Ingresar Producto */
-           /* Producto  res = manteprod.IngresarProducto(8, 1, 1,null,1, "Nombre Prod 2", "detalle prod 2", 2, 100, 50, "2", DateTime.Now, "1", true);
-            Assert.AreNotEqual(res.Id, 0);
-        }*/
+     
     }
 }
 

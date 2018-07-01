@@ -18,7 +18,8 @@ namespace POS.Data.DataAccess
         {
 
             //optionsBuilder.UseSqlServer(configuration.GetConnectionString("SimpleFactConexion").ToString());
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7KB7TBQ\SQLEXPRESS;Initial Catalog=SimpleFact;User ID=sa;Password=SqL1205$");
+		    optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7KB7TBQ\SQLEXPRESS;Initial Catalog=SimpleFact;User ID=sa;Password=SqL1205$");
+            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-UJ8GTR2\SQLEXPRESS;Initial Catalog=SimpleFact;User ID=sa;Password=v4lv3rd3");
             optionsBuilder.EnableSensitiveDataLogging(true);
 
         }
@@ -323,19 +324,19 @@ namespace POS.Data.DataAccess
                                     .HasMaxLength(60)
                                     .IsUnicode(false);
 
-                entity.Property(e => e.DireccionOtrasSenas)
+                entity.Property(e => e.Direccion_OtrasSenas)
                                     .HasColumnName("Direccion_OtrasSenas")
                                     .HasMaxLength(160)
                                     .IsUnicode(false);
 
                 entity.Property(e => e.EsCorreoValido).HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.FaxCodigoPais)
+                entity.Property(e => e.Fax_CodigoPais)
                                     .HasColumnName("Fax_CodigoPais")
                                     .HasMaxLength(3)
                                     .IsUnicode(false);
 
-                entity.Property(e => e.FaxNumero)
+                entity.Property(e => e.Fax_Numero)
                                     .HasColumnName("Fax_Numero")
                                     .HasMaxLength(20)
                                     .IsUnicode(false);
@@ -356,12 +357,12 @@ namespace POS.Data.DataAccess
                                     .HasMaxLength(250)
                                     .IsUnicode(false);
 
-                entity.Property(e => e.TelCodigoPais)
+                entity.Property(e => e.Tel_CodigoPais)
                                     .HasColumnName("Tel_CodigoPais")
                                     .HasMaxLength(3)
                                     .IsUnicode(false);
 
-                entity.Property(e => e.TelNumero)
+                entity.Property(e => e.Tel_Numero)
                                     .HasColumnName("Tel_Numero")
                                     .HasMaxLength(20)
                                     .IsUnicode(false);

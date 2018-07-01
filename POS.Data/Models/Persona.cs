@@ -23,11 +23,11 @@ namespace POS.Data.Models
         public string NombreComercial { get; set; }
         public string CorreoElectronico { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public string TelCodigoPais { get; set; }
-        public string TelNumero { get; set; }
-        public string FaxCodigoPais { get; set; }
-        public string FaxNumero { get; set; }
-        public string DireccionOtrasSenas { get; set; }
+        public string Tel_CodigoPais { get; set; }
+        public string Tel_Numero { get; set; }
+        public string Fax_CodigoPais { get; set; }
+        public string Fax_Numero { get; set; }
+        public string Direccion_OtrasSenas { get; set; }
         public bool? EsCorreoValido { get; set; }
         public bool? Activo { get; set; }
 

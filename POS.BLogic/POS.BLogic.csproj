@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Reportes\" />
+    <Compile Remove="Reportes\**" />
+    <EmbeddedResource Remove="Reportes\**" />
+    <None Remove="Reportes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.8.6" />
   </ItemGroup>
 
   <ItemGroup>
