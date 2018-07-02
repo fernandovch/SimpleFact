@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using POS.Web.Data;
-using POS.Web.Models;
-using POS.Web.Services;
+using POS.WEB.Data;
+using POS.WEB.Models;
+using POS.WEB.Services;
 
-namespace POS.Web
+namespace POS.WEB
 {
     public class Startup
     {
@@ -37,6 +37,7 @@ namespace POS.Web
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+       //     services.Configure<MySettings>(Configuration.GetSection("MySettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

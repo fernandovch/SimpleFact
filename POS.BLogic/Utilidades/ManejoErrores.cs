@@ -10,9 +10,10 @@ namespace POS.BLogic.Utilidades
     {
         private IGenericRepository<LogErrores> interface_logErrores;
 
-        public ManejoErrores(IGenericRepository<LogErrores> _logError)
+        public ManejoErrores()
         {
-            interface_logErrores = _logError;
+            Inicializador.Init();
+            interface_logErrores = DependencyInjector.Retrieve<GenericRepository<LogErrores>>();
         }
 
         /// <summary>

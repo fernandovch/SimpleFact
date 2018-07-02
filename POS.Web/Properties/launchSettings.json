@@ -3,26 +3,26 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:50713/",
-      "sslPort": 44307
+      "applicationUrl": "http://localhost:50744/",
+      "sslPort": 44339
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44307/",
+      "launchUrl": "https://localhost:44339/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "POS.Web": {
+    "POS.WEB": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:50714/"
+      "applicationUrl": "http://localhost:50745/"
     }
   }
 }

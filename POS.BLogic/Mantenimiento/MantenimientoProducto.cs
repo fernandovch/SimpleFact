@@ -10,41 +10,64 @@ namespace POS.BLogic.Mantenimiento
 {
     public class MantenimientoProducto : IMantemientoProducto
     {
+
+        #region PrivateGlobals
+
         private IGenericRepository<Persona> sujeto;
-        private IGenericRepository<LogErrores> logErrores;
         private IGenericRepository<Producto> producto;
         private IGenericRepository<ProductoCategoria> productoCategoria;
         private IGenericRepository<MovimientosInventario> movimiento;
         private IGenericRepository<RazonMovimientoInventario> razones;
         private IGenericRepository<TipoImpuestos> impuestos;
         private IGenericRepository<TipoExoneraciones> exoneraciones;
-
         private ManejoErrores log;
+
+        #endregion
+
+        #region PublicGlobals
+
+        public MovimientosInventario globalVar_MovInventario;
+        public Producto globalVar_Producto;
+
+        #endregion
 
         public MantenimientoProducto() {
 
             Inicializador.Init();
 
             sujeto = DependencyInjector.Retrieve<GenericRepository<Persona>>();
-            logErrores = DependencyInjector.Retrieve<GenericRepository<LogErrores>>();
             producto = DependencyInjector.Retrieve<GenericRepository<Producto>>();
             productoCategoria = DependencyInjector.Retrieve<GenericRepository<ProductoCategoria>>();
             movimiento = DependencyInjector.Retrieve<GenericRepository<MovimientosInventario>>();
             razones = DependencyInjector.Retrieve<GenericRepository<RazonMovimientoInventario>>();
             impuestos = DependencyInjector.Retrieve<GenericRepository<TipoImpuestos>>();
             exoneraciones = DependencyInjector.Retrieve<GenericRepository<TipoExoneraciones>>();
-
+            globalVar_MovInventario = new MovimientosInventario();
 
         }
 
         public MovimientosInventario AgregarMovimientosInventario(MovimientosInventario _movimiento)
         {
+            try { 
             return movimiento.Add(_movimiento);
+            }
+            catch (Exception _ex)
+            {
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
+                return null;
+            }
         }
 
         public Producto AgregarProducto(Producto _producto)
         {
+            try { 
             return producto.Add(_producto);
+            }
+            catch (Exception _ex)
+            {              
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
+                return null;
+            }
         }
 
         public List<Producto> BuscarProducto(string parametro, string valor)
@@ -59,8 +82,7 @@ namespace POS.BLogic.Mantenimiento
                 return productResult;
             }
             catch (Exception _ex)
-            {
-                log = new ManejoErrores(logErrores);
+            {            
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
@@ -77,7 +99,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
@@ -91,7 +112,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -107,7 +127,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -120,7 +139,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -137,7 +155,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
                 return null;
             }
@@ -154,7 +171,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -171,7 +187,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }

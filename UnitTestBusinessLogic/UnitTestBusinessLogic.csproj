@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\SimpleFact\POS.BLogic\POS.BLogic.csproj" />
-    <ProjectReference Include="..\..\Test\SimpleFact\POS.Data\POS.Data.csproj" />
+    <ProjectReference Include="..\POS.BLogic\POS.BLogic.csproj" />
+    <ProjectReference Include="..\POS.Data\POS.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using POS.Web.Services;
+using POS.WEB.Services;
 
-namespace POS.Web.Services
+namespace POS.WEB.Services
 {
     public static class EmailSenderExtensions
     {

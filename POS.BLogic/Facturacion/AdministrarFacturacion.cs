@@ -9,6 +9,7 @@ namespace POS.BLogic.Facturacion
 {
     public class AdministrarFacturacion : IAdministracionFactura
     {
+        #region PrivateGlobals
         private IGenericRepository<EncabezadoFactura> encabezadoFactura;
         private IGenericRepository<DetalleFactura> detalleFactura;
         private IGenericRepository<Persona> sujeto;
@@ -18,9 +19,15 @@ namespace POS.BLogic.Facturacion
         private IGenericRepository<TipoImpuestos> impuestos;
         private IGenericRepository<TipoExoneraciones> exoneracion;
         private IGenericRepository<ServicioFacturaElectronica> facturaElectronica;
-
-        private IGenericRepository<LogErrores> logErrores;
         private ManejoErrores log;
+
+        #endregion
+
+        #region PublicGlobals
+        public EncabezadoFactura globalVar_EncabezadoFactura;
+        public DetalleFactura globalVar_DetalleFactura;
+
+        #endregion
 
         public AdministrarFacturacion()
         {
@@ -34,7 +41,9 @@ namespace POS.BLogic.Facturacion
             impuestos = DependencyInjector.Retrieve<GenericRepository<TipoImpuestos>>();
             exoneracion = DependencyInjector.Retrieve<GenericRepository<TipoExoneraciones>>();
             facturaElectronica = DependencyInjector.Retrieve<GenericRepository<ServicioFacturaElectronica>>();
-            logErrores = DependencyInjector.Retrieve<GenericRepository<LogErrores>>();
+            log = new ManejoErrores();
+            globalVar_EncabezadoFactura = new EncabezadoFactura();
+            globalVar_DetalleFactura = new DetalleFactura();
 
         }
 
@@ -50,8 +59,7 @@ namespace POS.BLogic.Facturacion
                 return encabezadoFactura.Add(_encabezado);
             }
             catch (Exception _ex)
-            {
-                log = new ManejoErrores(logErrores);
+            {                
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -69,8 +77,7 @@ namespace POS.BLogic.Facturacion
                 return detalleFactura.Add(_detalle);
             }
             catch (Exception _ex)
-            {
-                log = new ManejoErrores(logErrores);
+            {               
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -91,7 +98,6 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -111,7 +117,6 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -131,7 +136,6 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -151,15 +155,13 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
-
                 return -1;
             }
         }
 
+      
 
-               
     }
 
 }

@@ -10,16 +10,19 @@ namespace POS.BLogic.Mantenimiento
 {
     public class MantenimientoFacturaElectronica: IMantenimientoFacturaElectronica
     {
+        #region PrivateGlobals
+
         private IGenericRepository<ServicioFacturaElectronica> facturaElectronica;
-        private IGenericRepository<LogErrores> logErrores;
         private ManejoErrores log;
+
+        #endregion
+ 
 
         public MantenimientoFacturaElectronica()
         {
             Inicializador.Init();
-
             facturaElectronica = DependencyInjector.Retrieve<GenericRepository<ServicioFacturaElectronica>>();
-            logErrores = DependencyInjector.Retrieve<GenericRepository<LogErrores>>();
+            log = new ManejoErrores();
 
         }
 
@@ -33,8 +36,7 @@ namespace POS.BLogic.Mantenimiento
                 return facturaElectronica.Update(factura, _idFactura);
             }
             catch (Exception _ex)
-            {
-                log = new ManejoErrores(logErrores);
+            {                
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -51,7 +53,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -67,7 +68,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace POS.Web.Models.ManageViewModels
+namespace POS.WEB.Models.ManageViewModels
 {
     public class TwoFactorAuthenticationViewModel
     {

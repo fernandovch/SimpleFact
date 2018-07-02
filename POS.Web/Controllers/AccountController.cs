@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using POS.Web.Models;
-using POS.Web.Models.AccountViewModels;
-using POS.Web.Services;
+using POS.WEB.Models;
+using POS.WEB.Models.AccountViewModels;
+using POS.WEB.Services;
 
-namespace POS.Web.Controllers
+namespace POS.WEB.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

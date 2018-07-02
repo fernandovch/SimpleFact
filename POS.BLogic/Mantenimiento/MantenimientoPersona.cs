@@ -9,16 +9,27 @@ namespace POS.BLogic.Mantenimiento
 {
     public class MantenimientoPersona : IMantemientoPersona
     {
+        #region PrivateGlobals
+
         private IGenericRepository<Persona> sujeto;
-        private IGenericRepository<LogErrores> logErrores;
         private ManejoErrores log;
+
+        #endregion
+
+        #region PublicGlobals
+
+        public Persona globalVar_Persona;
+
+        #endregion
 
 
         public MantenimientoPersona()
         {
             Inicializador.Init();
             sujeto = DependencyInjector.Retrieve<GenericRepository<Persona>>();
-            logErrores = DependencyInjector.Retrieve<GenericRepository<LogErrores>>();
+            log = new ManejoErrores();
+            globalVar_Persona = new Persona();
+
         }
 
         public Persona AgregarPersona(Persona _persona)
@@ -29,8 +40,7 @@ namespace POS.BLogic.Mantenimiento
                 return persona.Add(_persona);
             }
             catch (Exception _ex)
-            {
-                log = new ManejoErrores(logErrores);
+            {              
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -48,7 +58,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -62,7 +71,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -79,7 +87,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
@@ -97,7 +104,6 @@ namespace POS.BLogic.Mantenimiento
             }
             catch (Exception _ex)
             {
-                log = new ManejoErrores(logErrores);
                 log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }

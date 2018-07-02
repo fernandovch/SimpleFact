@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POS.BLogic.Mantenimiento;
-using POS.Data.DataAccess;
 using POS.Data.Models;
 using System;
 using System.Collections.Generic;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using POS.Web.Models;
+using POS.WEB.Models;
 
-namespace POS.Web.Data
+namespace POS.WEB.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
