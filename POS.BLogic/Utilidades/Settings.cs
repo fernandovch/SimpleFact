@@ -8,31 +8,46 @@ namespace POS.BLogic.Utilidades
 {
     public class Settings
     {
-        private readonly string _sqlConnection;
-        private readonly string _sample;
-
+        private IConfigurationRoot _root;
+        
         public Settings()
         {
-          /*  var configurationBuilder = new ConfigurationBuilder();
+            var configurationBuilder = new ConfigurationBuilder();
             var path = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
             configurationBuilder.AddJsonFile(path, false);
-
-            var root = configurationBuilder.Build();
-            _sqlConnection = root.GetConnectionString("DataConnection");
-
-            var appSetting = root.GetSection("ApplicationSettings");
-            var test = appSetting["Sample"];
-            */
+            _root = configurationBuilder.Build();
         }
 
-        public string SqlDataConnection
+        public string IdP_Uri
         {
-            get => _sqlConnection;
+            get
+            {
+                return _root.GetSection("TokenService:idp_uri").Value;
+            }                      
         }
 
-        public string Sample
+        public string IdP_Client_Id
         {
-            get => _sample;
+            get
+            {
+                return _root.GetSection("TokenService:idp_client_id").Value;
+            }
+        }
+
+        public string IdP_Usuaio
+        {
+            get
+            {
+                return _root.GetSection("TokenService:idp_usuario").Value;
+            }
+        }
+       
+        public string IdP_Password
+        {
+            get
+            {
+                return _root.GetSection("TokenService:idp_password").Value;
+            }
         }
     }
 }

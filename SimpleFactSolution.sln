@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS.BLogic", "POS.BLogic\PO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestBusinessLogic", "UnitTestBusinessLogic\UnitTestBusinessLogic.csproj", "{925FC669-7FCC-4305-9985-ACF9E7E08A69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.WEB", "POS.WEB\POS.WEB.csproj", "{82B28CC0-8078-41E8-96E7-B208247946D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS.WEB", "POS.WEB\POS.WEB.csproj", "{82B28CC0-8078-41E8-96E7-B208247946D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

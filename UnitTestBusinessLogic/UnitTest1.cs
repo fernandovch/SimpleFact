@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using POS.BLogic.Facturacion;
 using POS.BLogic.Mantenimiento;
+using POS.BLogic.Utilidades;
 using POS.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -54,7 +56,16 @@ namespace UnitTestBusinessLogic
             Assert.AreEqual<Persona>(resultado, _sujeto );
         }
 
-     
+        [TestMethod]
+        public void TestMethod2()
+        {
+            AdministrarServiciosHacienda service = new AdministrarServiciosHacienda();
+             var result = service.ObtenerTokenIdP(true);
+            var desconnect = service.DesconectarTokenIdP(true);
+          /*  Settings valores = new Settings();
+         var algo = valores.IdP_Uri;*/
+        }
+
     }
 }
 
