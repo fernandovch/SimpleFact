@@ -49,5 +49,21 @@ namespace POS.BLogic.Utilidades
                 return _root.GetSection("TokenService:idp_password").Value;
             }
         }
+
+        public string Codigo_Pais
+        {
+            get
+            {
+                return _root.GetSection("FacturaElectronica:CodPais").Value;
+            }
+        }
+
+        public string Numero_Cedula
+        {
+            get
+            {
+                return _root.GetSection("FacturaElectronica:NumCedula").Value;
+            }
+        }
     }
 }

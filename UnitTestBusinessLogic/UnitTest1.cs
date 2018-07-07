@@ -60,8 +60,8 @@ namespace UnitTestBusinessLogic
         public void TestMethod2()
         {
             AdministrarServiciosHacienda service = new AdministrarServiciosHacienda();
-             var result = service.ObtenerTokenIdP(true);
-            var desconnect = service.DesconectarTokenIdP(true);
+             var result = service.ObtenerTokenIdP();
+            var desconnect = service.DesconectarTokenIdP();
           /*  Settings valores = new Settings();
          var algo = valores.IdP_Uri;*/
         }

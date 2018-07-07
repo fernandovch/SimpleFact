@@ -20,6 +20,7 @@ namespace POS.BLogic.Facturacion
         private IGenericRepository<TipoExoneraciones> exoneracion;
         private IGenericRepository<ServicioFacturaElectronica> facturaElectronica;
         private ManejoErrores log;
+        private Settings setting = new Settings();
 
         #endregion
 
@@ -60,7 +61,7 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {                
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -78,7 +79,7 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {               
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -98,7 +99,7 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -117,7 +118,7 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -136,7 +137,7 @@ namespace POS.BLogic.Facturacion
             }
             catch (Exception _ex)
             {
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return null;
             }
         }
@@ -151,16 +152,52 @@ namespace POS.BLogic.Facturacion
             try
             {
                 consecutivo = encabezadoFactura.GetMaxValue(x => int.Parse(x.NumeroConsecutivo));
-                return consecutivo;
+                return consecutivo+1;
             }
             catch (Exception _ex)
             {
-                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
                 return -1;
             }
         }
 
-      
+        public string GenerarClaveNumerica(string _situacionComprobante)
+        {
+            ///Primeros 3 digitos
+            string codPais = string.Empty;
+            /// dia en que se genera la factura 2 digitos (4-5)
+            string dia = string.Empty;
+            // mes en que se genera la factura 2 digitos (6-7)
+            string mes = string.Empty;
+            // anno en que se genera la factura 2 digitos (8-9)
+            string anno = string.Empty;
+            // numero de cedula del contribuyente 10 digitos (10-21)
+            string numCedula = string.Empty;
+            // numero consecutivo del comprobante electronico 19 digitos (22-41)
+            string numConsecutivo = string.Empty;
+            // numero codigo de seguridad 7 digitos (43-50)
+            string codSeguridad = string.Empty;
+            // string clave numerica
+            string claveNumerica = string.Empty;
+
+            try
+            {
+                codPais = setting.Codigo_Pais;
+                dia = DateTime.Now.ToString("dd");
+                mes = DateTime.Now.ToString("MM");
+                anno = DateTime.Now.ToString("yy");
+                numCedula = setting.Numero_Cedula;
+                numConsecutivo = ObtenerConsecutivo().ToString().PadLeft(19,'0');
+                codSeguridad = numConsecutivo.PadLeft(7, '0');
+                claveNumerica = codPais + dia + mes + anno + numCedula + numConsecutivo + _situacionComprobante + codSeguridad;
+                return claveNumerica;
+            }
+            catch (Exception _ex)
+            {
+                log.RegistrarErrorLog((int)ModuloSistema.Facturacion, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                return null;
+            }
+        }
 
     }
 
