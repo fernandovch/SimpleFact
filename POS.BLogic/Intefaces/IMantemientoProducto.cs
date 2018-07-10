@@ -26,5 +26,7 @@ namespace POS.BLogic.Interfaces
         List<RazonMovimientoInventario> SeleccionarRazonesMovimientoInventario();
 
         List<Producto> BuscarProducto(string parametro, string valor);
+
+        List<Producto> ObtenerTodos();
     }
 }

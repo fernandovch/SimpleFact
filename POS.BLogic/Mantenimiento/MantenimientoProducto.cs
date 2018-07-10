@@ -88,6 +88,19 @@ namespace POS.BLogic.Mantenimiento
             }
         }
 
+        public List<Producto> ObtenerTodos()
+        {            
+            try
+            {
+                return producto.FindBy(x => x.Activo == true);
+            }
+            catch (Exception _ex)
+            {
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
+                return null;
+            }
+        }
+
         public List<Producto> BuscarProductoPorCodigo(string _codigo)
         {
 
@@ -96,6 +109,22 @@ namespace POS.BLogic.Mantenimiento
             try
             {
                 return productResult = producto.FindBy(x => x.Codigo == _codigo);
+            }
+            catch (Exception _ex)
+            {
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.InnerException.Message);
+                return null;
+            }
+        }
+
+        public List<Producto> BuscarProductoPorId(int _id)
+        {
+
+            List<Producto> productResult;
+
+            try
+            {
+                return productResult = producto.FindBy(x => x.Id == _id);
             }
             catch (Exception _ex)
             {
