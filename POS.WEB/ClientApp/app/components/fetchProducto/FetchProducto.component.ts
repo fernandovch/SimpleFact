@@ -1,7 +1,7 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../Services/Product.Service';
+import { ServicioProducto } from '../../Services/ServicioProducto.service';
 @Component({
     selector: 'fetchProducto',
     templateUrl: './FetchProducto.component.html'
@@ -9,7 +9,7 @@ import { ProductService } from '../../Services/Product.Service';
 export class FetchProductoComponent {
     public productList:ProductoData[];
 
-    constructor(public http: Http, private _router: Router, private _productService: ProductService) {
+    constructor(public http: Http, private _router: Router, private _productService: ServicioProducto) {
         this.getProductos();
     }
     getProductos() {

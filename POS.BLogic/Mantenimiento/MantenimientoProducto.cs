@@ -88,7 +88,7 @@ namespace POS.BLogic.Mantenimiento
             }
         }
 
-        public List<Producto> ObtenerTodos()
+        public List<Producto> SeleccionarTodos()
         {            
             try
             {

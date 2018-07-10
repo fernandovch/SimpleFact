@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\components\AgregarProducto\AgregarProducto.component.ts" />
+    <None Remove="ClientApp\app\components\RegistrarProducto\RegistrarProducto.component.ts" />
     <None Remove="ClientApp\app\components\fetchProducto\FetchProducto.component.ts" />
-    <None Remove="ClientApp\app\Services\Product.Service.ts" />
+    <None Remove="ClientApp\app\Services\ServicioProducto.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,9 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\components\AgregarProducto\AgregarProducto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\RegistrarProducto\RegistrarProducto.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\fetchProducto\FetchProducto.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\Services\Product.Service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Services\ServicioProducto.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

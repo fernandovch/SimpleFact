@@ -10,8 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FetchProductoComponent } from './components/fetchProducto/FetchProducto.component';
-import { createproducto } from './components/AgregarProducto/AgregarProducto.component';
-import { ProductService } from './Services/Product.Service';
+import { CrearProducto } from './components/RegistrarProducto/RegistrarProducto.component';
+import { ServicioProducto } from './Services/ServicioProducto.service';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,7 @@ import { ProductService } from './Services/Product.Service';
         NavMenuComponent,
         HomeComponent,
         FetchProductoComponent,
-        createproducto,
+        CrearProducto,
     ],
     imports: [
         CommonModule,
@@ -30,12 +30,12 @@ import { ProductService } from './Services/Product.Service';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'fetch-producto', component: FetchProductoComponent },
-            { path: 'register-producto', component: createproducto },
-            { path: 'producto/edit/:id', component: createproducto },
+            { path: 'register-producto', component: CrearProducto },
+            { path: 'producto/edit/:id', component: CrearProducto },
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [ProductService]
+    providers: [ServicioProducto]
 })
 export class AppModuleShared {
 }

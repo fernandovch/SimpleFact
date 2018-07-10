@@ -27,6 +27,8 @@ namespace POS.BLogic.Interfaces
 
         List<Producto> BuscarProducto(string parametro, string valor);
 
-        List<Producto> ObtenerTodos();
+        List<Producto> SeleccionarTodos();
+
+        List<Producto> BuscarProductoPorId(int _id);
     }
 }
