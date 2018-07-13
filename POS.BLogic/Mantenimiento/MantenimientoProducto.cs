@@ -125,6 +125,7 @@ namespace POS.BLogic.Mantenimiento
             try
             {
                 return productResult = producto.FindBy(x => x.Id == _id);
+                //return productResult = producto.Get(_id);
             }
             catch (Exception _ex)
             {

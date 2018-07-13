@@ -37,40 +37,38 @@
             </span>
         </div>
         <div class="form-group row">
-            <label class="control-label col-md-12" for="fechacreacion">Fecha Creacion</label>
+            <label class="control-label col-md-12" for="idCategoria">Categoria</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="fechacreacion" data-val="true">
+                <input class="form-control" type="number" formControlName="idCategoria">
+            </div>           
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="fechaCreacion">Fecha Creacion</label>
+            <div class="col-md-4">
+                <input class="form-control" type="datetime" id="fechaCreacion" name="fechaCreacion">
             </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechacreacion') && formDir.submitted">
+            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechaCreacion') && formDir.submitted">
                 City is required
             </span>
         </div>
         <div class="form-group row">
-            <label class="control-label col-md-12" for="fechamodificacion">Fecha Modificacion</label>
+            <label class="control-label col-md-12" for="fechaModificacion">Fecha Modificacion</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="fechamodificacion" data-val="true">
+                <input class="form-control" type="datetime" formControlName="fechaModificacion">
             </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechamodificacion') && formDir.submitted">
+            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechaModificacion') && formDir.submitted">
                 City is required
             </span>
         </div>
-        <div class="form-group row">
-            <label class="control-label col-md-12" for="gravado">Gravado</label>
-            <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="gravado" data-val="true">
-            </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'gravado') && formDir.submitted">
-                City is required
-            </span>
+        <div class="row checkbox">
+            <label class="center-block">
+                <input type="checkbox" formControlName="gravado">Gravado
+            </label>
         </div>
-        <div class="form-group row">
-            <label class="control-label col-md-12" for="activo">Activo</label>
-            <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="activo" data-val="true">
-            </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'activo') && formDir.submitted">
-                City is required
-            </span>
+        <div class="row checkbox">
+            <label class="center-block">
+                <input type="checkbox" formControlName="activo">Activo
+            </label>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-default">Save</button>

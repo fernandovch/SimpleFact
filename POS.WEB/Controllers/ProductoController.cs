@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using POS.BLogic.Interfaces;
 using POS.BLogic.Mantenimiento;
@@ -11,7 +12,7 @@ using POS.Data.Models;
 
 namespace POS.WEB.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("[controller]")]
     public class ProductoController : Controller
     {
         IMantemientoProducto mantenimiento;
@@ -21,35 +22,42 @@ namespace POS.WEB.Controllers
             mantenimiento = _mantenimiento;
         }
 
-        [HttpGet("[action]")]
-        [Route("api/Producto/Index")]
+        [HttpGet]
+        // [Route("api/Producto/Index")]        
         public Array Index()
-        {            
-            return mantenimiento.SeleccionarTodos().ToArray();            
+        {
+            return mantenimiento.SeleccionarTodos().ToArray();          
         }
 
         //get <controller>/5
         [HttpGet("{id}")]
-        [Route("api/Producto/Detalle/{id}")]
-        public Array SeleccionarProducto(int id)
+       // [Route("api/Producto/Detalle/{id}")]
+        public Array Get(int id)
         {
             return mantenimiento.BuscarProductoPorId(id).ToArray();
         }
 
         // post api/<controller>
         [HttpPost]
-        [Route("api/Producto/Crear")]
-        public Producto CrearProducto([FromBody]Producto producto)
+       // [Route("api/Producto/Crear")]
+        public Producto Create([FromBody]Producto producto)
         {
             return mantenimiento.AgregarProducto(producto);
         }
 
         // put api/<controller>/5
-        [HttpPut]
-        [Route("api/Producto/Editar")]
-        public Producto ModificarProducto([FromBody]Producto producto)
+        [HttpGet]
+      //  [Route("api/Producto/Detalle")]
+        public Producto Details(int id)
         {
-            return mantenimiento.ModificarProducto(producto);
+            return mantenimiento.BuscarProductoPorId(id).ToArray()[0];
+        }
+
+        [HttpPut]
+       // [Route("api/Producto/Editar")]
+        public int Edit([FromBody]Producto producto)
+        {
+            return mantenimiento.ModificarProducto(producto).Id;
         }
 
         /* [HttpDelete]

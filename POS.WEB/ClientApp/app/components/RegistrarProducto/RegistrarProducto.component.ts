@@ -13,29 +13,31 @@ export class CrearProducto implements OnInit {
     title: string = "Crear";
     id: number;
     errorMessage: any;
+
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
         private _productoService: ServicioProducto, private _router: Router) {
+
         if (this._avRoute.snapshot.params["id"]) {
             this.id = this._avRoute.snapshot.params["id"];
         }
         this.productoForm = this._fb.group({
             id: 0,
-            idcategoria: 0,
-            IdProveedor: 0,
-            IdUnidadMedida: 0,
-            IdImpuesto: 0,
-            IdExoneracion: 0,
-            // Nombre: ['', [Validators.required]],
-            Nombre: [''],
-            Detalle: [''],
-            CantidadDisponible: 0,
-            PrecioUnitario: 0,
-            CostoUnitario: 0,
-            Codigo: [''],
-            FechaCreacion: [Date],
-            FechaModificacion: [Date],
-            Gravado: [''],
-            Activo: [true]          
+            idCategoria: 0,
+            idProveedor: 0,
+            idUnidadMedida: 0,
+            idImpuesto: 0,
+            idExoneracion: 0,
+            //Nombre: ['', [Validators.required]],
+            nombre: '',
+            detalle: '',
+            cantidadDisponible: 0,
+            precioUnitario: 0,
+            costoUnitario: 0,
+            codigo: '',
+            fechaCreacion: '',
+            fechaModificacion: '',
+            gravado: [''],
+            activo: [true]          
         })
     }
     ngOnInit() {
@@ -53,31 +55,32 @@ export class CrearProducto implements OnInit {
         if (this.title == "Crear") {
             this._productoService.saveProducto(this.productoForm.value)
                 .subscribe((data) => {
-                    this._router.navigate(['/fetch-producto']);
+                    this._router.navigate(['/Productos']);
                 }, error => this.errorMessage = error)
         }
         else if (this.title == "Editar") {
             this._productoService.updateProducto(this.productoForm.value)
                 .subscribe((data) => {
-                    this._router.navigate(['/fetch-producto']);
+                    this._router.navigate(['/Productos']);
                 }, error => this.errorMessage = error)
         }
     }
     cancel() {
-        this._router.navigate(['/fetch-producto']);
+        this._router.navigate(['/Productos']);
     }
     get nombre() { return this.productoForm.get('nombre'); }
     get codigo() { return this.productoForm.get('codigo'); }   
-    get idcategoria() { return this.productoForm.get('idcategoria'); }
-    get idProveedor() { return this.productoForm.get('idproveedor'); }
-    get idunidadmedida() { return this.productoForm.get('idunidadmedida'); }
-    get idimpuesto() { return this.productoForm.get('idimpuesto'); }
-    get idexoneracion() { return this.productoForm.get('idexoneracion'); }
-    get cantidaddisponible() { return this.productoForm.get('cantidaddisponible'); }
-    get preciounitario() { return this.productoForm.get('preciounitario'); }
-    get costounitario() { return this.productoForm.get('costounitario'); }
-    get fechacreacion() { return this.productoForm.get('fechacreacion'); }
-    get fechamodificacion() { return this.productoForm.get('fechamodificacion'); }
+    get idcategoria() { return this.productoForm.get('idCategoria'); }
+    get detalle() { return this.productoForm.get('detalle');}
+    get idProveedor() { return this.productoForm.get('idProveedor'); }
+    get idunidadmedida() { return this.productoForm.get('idUnidadMedida'); }
+    get idimpuesto() { return this.productoForm.get('idImpuesto'); }
+    get idexoneracion() { return this.productoForm.get('idExoneracion'); }
+    get cantidaddisponible() { return this.productoForm.get('cantidadDisponible'); }
+    get preciounitario() { return this.productoForm.get('precioUnitario'); }
+    get costounitario() { return this.productoForm.get('costoUnitario'); }
+    get fechacreacion() { return this.productoForm.get('fechaCreacion'); }
+    get fechamodificacion() { return this.productoForm.get('fechaModificacion'); }
     get gravado() { return this.productoForm.get('gravado'); }
     
 }

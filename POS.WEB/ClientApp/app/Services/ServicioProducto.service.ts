@@ -14,22 +14,23 @@ export class ServicioProducto {
     }
     getProductos() {
         
-        return this._http.get(this.myAppUrl + 'api/Producto/Index')
+        return this._http.get(this.myAppUrl + 'Producto/Index')
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
     getproductoId(id: number) {
-        return this._http.get(this.myAppUrl + "api/Producto/Detalle/" + id)
+        return this._http.get(this.myAppUrl + "Producto/Details/" + id)
             .map((response: Response) => response.json())
             .catch(this.errorHandler)
+
     } 
     saveProducto(producto) {
-        return this._http.post(this.myAppUrl + 'api/Producto/Crear', producto)
+        return this._http.post(this.myAppUrl + 'Producto/Create', producto)
             .map((response: Response) => response.json())
             .catch(this.errorHandler)
     }
     updateProducto(producto) {
-        return this._http.put(this.myAppUrl + 'api/Producto/Editar', producto)
+        return this._http.put(this.myAppUrl + 'Producto/Edit/', producto)
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }

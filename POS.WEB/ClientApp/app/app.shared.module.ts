@@ -29,7 +29,7 @@ import { ServicioProducto } from './Services/ServicioProducto.service';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'fetch-producto', component: FetchProductoComponent },
+            { path: 'Productos', component: FetchProductoComponent },
             { path: 'register-producto', component: CrearProducto },
             { path: 'producto/edit/:id', component: CrearProducto },
             { path: '**', redirectTo: 'home' }

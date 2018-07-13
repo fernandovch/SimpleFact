@@ -43,6 +43,6 @@ interface ProductoData {
     FechaCreacion: Date;
     FechaModificacion: Date;
     Gravado: string;
-    Activo: boolean     
+    Activo: boolean
        
 }

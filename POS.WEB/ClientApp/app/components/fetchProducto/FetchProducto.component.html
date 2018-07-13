@@ -6,47 +6,27 @@
 </p>
 <table class='table' *ngIf="productList">
     <thead>
-        <tr>
-          
+        <tr>          
             <th>ID</th>
-            <th>ID Categoria</th>
-            <th>ID proveedor</th>
-            <th>ID Unidad Medida</th>
-            <th>ID Impuesto</th>
-            <th>ID Exoneracion</th>
             <th>Nombre</th>
             <th>Detalle</th>
             <th>CantidadDisponible</th>
             <th>Precio Unitario</th>
             <th>Costo Unitario</th>
-            <th>Codigo</th>
-            <th>Fecha Creacion</th>
-            <th>Fecha Modificacion</th>
-            <th>Gravado</th>
-            <th>Activo</th>
+            <th>Codigo</th>            
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let emp of productList" >
             <td>{{ emp.id }}</td>
-            <td>{{ emp.idcategoria }}</td>
-            <td>{{ emp.idproveedor }}</td>
-            <td>{{ emp.idunidadmedida }}</td>
-            <td>{{ emp.idimpuesto }}</td>
-            <td>{{ emp.idexoneracion }}</td>
             <td>{{ emp.nombre }}</td>
             <td>{{ emp.detalle }}</td>
-            <td>{{ emp.cantidaddisponible }}</td>
-            <td>{{ emp.preciounitario }}</td>
-            <td>{{ emp.costounitario }}</td>
-            <td>{{ emp.codigo }}</td>
-            <td>{{ emp.fechacreacion }}</td>
-            <td>{{ emp.fechamodificacion }}</td>
-            <td>{{ emp.gravado }}</td>
-            <td>{{ emp.activo }}</td>
-           
+            <td>{{ emp.cantidadDisponible }}</td>
+            <td>{{ emp.precioUnitario }}</td>
+            <td>{{ emp.costoUnitario }}</td>
+            <td>{{ emp.codigo }}</td>           
             <td>
-                <a [routerLink]="['/Producto/Editar/', emp.id]">Editar</a> |
+                <a [routerLink]="['/producto/edit/', emp.id]">Editar</a> |
 
             </td>
         </tr>
