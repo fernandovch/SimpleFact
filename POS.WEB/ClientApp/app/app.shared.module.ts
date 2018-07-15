@@ -9,17 +9,17 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { FetchProductoComponent } from './components/fetchProducto/FetchProducto.component';
-import { CrearProducto } from './components/RegistrarProducto/RegistrarProducto.component';
-import { ServicioProducto } from './Services/ServicioProducto.service';
+import { ProductComponent } from './components/product/mainProduct/mainProduct.component';
+import { CreateProduct } from './components/product/adminProduct/adminProduct.component';
+import { ServiceProduct } from './Services/ServiceProduct.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         HomeComponent,
-        FetchProductoComponent,
-        CrearProducto,
+        ProductComponent,
+        CreateProduct,
     ],
     imports: [
         CommonModule,
@@ -29,13 +29,13 @@ import { ServicioProducto } from './Services/ServicioProducto.service';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'Productos', component: FetchProductoComponent },
-            { path: 'register-producto', component: CrearProducto },
-            { path: 'producto/edit/:id', component: CrearProducto },
+            { path: 'Productos', component: ProductComponent },
+            { path: 'register-producto', component: CreateProduct },
+            { path: 'producto/edit/:id', component: CreateProduct },
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [ServicioProducto]
+    providers: [ServiceProduct]
 })
 export class AppModuleShared {
 }

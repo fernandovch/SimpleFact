@@ -2,20 +2,20 @@
 import { Http, Headers } from '@angular/http';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FetchProductoComponent } from '../fetchProducto/FetchProducto.component';
-import { ServicioProducto } from '../../Services/ServicioProducto.service';
+import { ProductComponent } from '../mainProduct/mainProduct.component';
+import { ServiceProduct } from '../../../Services/ServiceProduct.service';
 @Component({
-    selector: 'CrearProducto',
-    templateUrl: './RegistrarProducto.component.html'
+    selector: 'CreateProduct',
+    templateUrl: './adminProduct.component.html'
 })
-export class CrearProducto implements OnInit {
+export class CreateProduct implements OnInit {
     productoForm: FormGroup;
-    title: string = "Crear";
+    title: string = "Create";
     id: number;
     errorMessage: any;
 
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
-        private _productoService: ServicioProducto, private _router: Router) {
+        private _productoService: ServiceProduct, private _router: Router) {
 
         if (this._avRoute.snapshot.params["id"]) {
             this.id = this._avRoute.snapshot.params["id"];
@@ -38,11 +38,12 @@ export class CrearProducto implements OnInit {
             fechaModificacion: '',
             gravado: [''],
             activo: [true]          
-        })
+        })        
+
     }
     ngOnInit() {
         if (this.id != null) {
-            this.title = "Editar";
+            this.title = "Edit";
             this._productoService.getproductoId(this.id)
                 .subscribe(resp => this.productoForm.setValue(resp)
                     , error => this.errorMessage = error);
@@ -52,13 +53,13 @@ export class CrearProducto implements OnInit {
         if (!this.productoForm.valid) {
             return;
         }
-        if (this.title == "Crear") {
+        if (this.title == "Create") {
             this._productoService.saveProducto(this.productoForm.value)
                 .subscribe((data) => {
                     this._router.navigate(['/Productos']);
                 }, error => this.errorMessage = error)
         }
-        else if (this.title == "Editar") {
+        else if (this.title == "Edit") {
             this._productoService.updateProducto(this.productoForm.value)
                 .subscribe((data) => {
                     this._router.navigate(['/Productos']);

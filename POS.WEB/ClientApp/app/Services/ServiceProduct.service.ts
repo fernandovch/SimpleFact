@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 @Injectable()
-export class ServicioProducto {
+export class ServiceProduct {
     myAppUrl: string = "";
     constructor(private _http: Http, @Inject('BASE_URL') baseUrl: string) {
         this.myAppUrl = baseUrl;

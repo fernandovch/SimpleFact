@@ -1,15 +1,16 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ServicioProducto } from '../../Services/ServicioProducto.service';
+import { ServiceProduct } from '../../../Services/ServiceProduct.service';
+
 @Component({
-    selector: 'fetchProducto',
-    templateUrl: './FetchProducto.component.html'
+    selector: 'mainProducto',
+    templateUrl: './mainProduct.component.html'
 })
-export class FetchProductoComponent {
+export class ProductComponent {
     public productList:ProductoData[];
 
-    constructor(public http: Http, private _router: Router, private _productService: ServicioProducto) {
+    constructor(public http: Http, private _router: Router, private _productService: ServiceProduct) {
         this.getProductos();
     }
     getProductos() {
