@@ -20,6 +20,7 @@ namespace POS.BLogic.Mantenimiento
         private IGenericRepository<RazonMovimientoInventario> razones;
         private IGenericRepository<TipoImpuestos> impuestos;
         private IGenericRepository<TipoExoneraciones> exoneraciones;
+        private IGenericRepository<TipoUnidadesMedida> unidadesMedida;
         private ManejoErrores log;
 
         #endregion
@@ -43,6 +44,7 @@ namespace POS.BLogic.Mantenimiento
             impuestos = DependencyInjector.Retrieve<GenericRepository<TipoImpuestos>>();
             exoneraciones = DependencyInjector.Retrieve<GenericRepository<TipoExoneraciones>>();
             globalVar_MovInventario = new MovimientosInventario();
+            unidadesMedida = DependencyInjector.Retrieve<GenericRepository<TipoUnidadesMedida>>();
 
         }
 
@@ -153,6 +155,21 @@ namespace POS.BLogic.Mantenimiento
             try
             {
                 ListProdCategoria = productoCategoria.FindBy(x => x.Activo == true);
+                return ListProdCategoria;
+            }
+            catch (Exception _ex)
+            {
+                log.RegistrarErrorLog((int)ModuloSistema.MantenimientoProducto, _ex.Message, _ex.Source + " : " + _ex.StackTrace);
+                return null;
+            }
+        }
+
+        public List<TipoUnidadesMedida> SeleccionarTiposUnidadesMedida()
+        {
+            List<TipoUnidadesMedida> ListProdCategoria;
+            try
+            {
+                ListProdCategoria = unidadesMedida.FindBy(x => x.Activo == true);
                 return ListProdCategoria;
             }
             catch (Exception _ex)

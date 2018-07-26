@@ -334,3 +334,4 @@ ASALocalRun/
 *.cache
 *.cache
 *.props
+/POS.WEB/ClientApp/app/components/app

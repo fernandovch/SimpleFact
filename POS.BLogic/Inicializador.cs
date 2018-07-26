@@ -19,6 +19,7 @@ namespace POS.BLogic
             DependencyInjector.Register<IGenericRepository<TipoImpuestos>, GenericRepository<TipoImpuestos>>();
             DependencyInjector.Register<IGenericRepository<TipoExoneraciones>, GenericRepository<TipoExoneraciones>>();
             DependencyInjector.Register<IGenericRepository<ServicioFacturaElectronica>, GenericRepository<ServicioFacturaElectronica>>();
+            DependencyInjector.Register<IGenericRepository<TipoUnidadesMedida>, GenericRepository<TipoUnidadesMedida>>();
         }
     }
 }

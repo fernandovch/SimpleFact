@@ -60,6 +60,34 @@ namespace POS.WEB.Controllers
             return mantenimiento.ModificarProducto(producto).Id;
         }
 
+        [HttpGet]
+        //  [Route("api/Producto/Detalle")]
+        public Array GetCategoriaProducto()
+        {
+            return mantenimiento.SeleccionarCategoriasProducto().ToArray();
+        }
+
+        [HttpGet]
+        //  [Route("api/Producto/Detalle")]
+        public Array GetProveedores()
+        {
+            return mantenimiento.SeleccionarProveedores().ToArray();
+        }
+
+        [HttpGet]
+        //  [Route("api/Producto/Detalle")]
+        public Array GetTipoImpuestos()
+        {
+            return mantenimiento.SeleccionarTiposImpuestos().ToArray();
+        }
+
+        [HttpGet]
+        //  [Route("api/Producto/Detalle")]
+        public Array GetTipoUnidadMedida()
+        {
+            return mantenimiento.SeleccionarTiposUnidadesMedida().ToArray();
+        }
+
         /* [HttpDelete]
          [Route("api/Producto/Delete/{id}")]
          public int Delete(int id)

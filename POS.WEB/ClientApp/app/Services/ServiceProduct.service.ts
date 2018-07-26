@@ -34,6 +34,27 @@ export class ServiceProduct {
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
+    getCategoriaProducto() {
+        return this._http.get(this.myAppUrl + "Producto/GetCategoriaProducto/")
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)
+    }
+    getProveedores() {
+        return this._http.get(this.myAppUrl + "Producto/GetProveedores/")
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)
+    }
+    getTipoImpuestos() {
+        return this._http.get(this.myAppUrl + "Producto/GetTipoImpuestos/")
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)
+    }
+    getGetTipoUnidadMedida() {
+        return this._http.get(this.myAppUrl + "Producto/GetTipoUnidadMedida/")
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)
+    }
+    
    
     errorHandler(error: Response) {
         console.log(error);

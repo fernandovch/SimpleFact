@@ -30,5 +30,7 @@ namespace POS.BLogic.Interfaces
         List<Producto> SeleccionarTodos();
 
         List<Producto> BuscarProductoPorId(int _id);
+
+        List<TipoUnidadesMedida> SeleccionarTiposUnidadesMedida();
     }
 }

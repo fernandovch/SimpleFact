@@ -10,6 +10,30 @@
     <hr />
     <form [formGroup]="productoForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
         <div class="form-group row">
+            <label class="control-label col-md-12" for="dd_categoria">Categoria</label>
+            <div class="col-md-4">
+                <select id="dd_categoria" class="form-control" formControlName="categoria">
+                    <option *ngFor="let c of productoCategoriaList" [ngValue]="c">{{ c.nombreCategoria }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="dd_proveedor">Proveedor</label>
+            <div class="col-md-4">
+                <select id="dd_proveedor" class="form-control" formControlName="proveedor">
+                    <option *ngFor="let c of Listproveedores" [ngValue]="c">{{ c.nombre }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="dd_unidadMedida">Unidad Medida</label>
+            <div class="col-md-4">
+                <select id="dd_unidadMedida" class="form-control" formControlName="unidadMedida">
+                    <option *ngFor="let c of ListunidadMedida" [ngValue]="c">{{ c.descripcion }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class=" control-label col-md-12" for="nombre">Nombre</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" formControlName="nombre">
@@ -17,6 +41,21 @@
             <span class="text-danger" *ngIf="productoForm.hasError('required', 'nombre') && formDir.submitted">
                 Nombre is required.
             </span>
+        </div>
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="detalle">Detalle</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="detalle">
+            </div>
+            <span class="text-danger" *ngIf="productoForm.hasError('required', 'detalle') && formDir.submitted">
+                Detalle is required.
+            </span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="cantidad">Cantidad Disponible</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="cantidad" disabled="disabled">
+            </div>
         </div>
         <div class="form-group row">
             <label class=" control-label col-md-12" for="codigo">Codigo</label>
@@ -27,38 +66,33 @@
                 Nombre is required.
             </span>
         </div>
+
         <div class="form-group row">
-            <label class="control-label col-md-12" for="detalle">Detalle</label>
+            <label class="control-label col-md-12" for="precioUnitario">Precio Unitario</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" formControlName="detalle">
+                <input class="form-control" type="number" id="precioUnitario" name="precioUnitario">
             </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'detalle') && formDir.submitted">
-                Department is required
+            <span class="text-danger" *ngIf="productoForm.hasError('required', 'precioUnitario') && formDir.submitted">
+                precioUnitario is required
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-12" for="costoUnitario">Costo Unitario</label>
+            <div class="col-md-4">
+                <input class="form-control" type="number" formControlName="costoUnitario">
+            </div>
+            <span class="text-danger" *ngIf="productoForm.hasError('required', 'costoUnitario') && formDir.submitted">
+                costoUnitario is required
             </span>
         </div>
         <div class="form-group row">
-            <label class="control-label col-md-12" for="idCategoria">Categoria</label>
+            <label class="control-label col-md-12" for="dd_impuesto">Tipo Impuesto</label>
             <div class="col-md-4">
-                <input class="form-control" type="number" formControlName="idCategoria">
-            </div>           
-        </div>
-        <div class="form-group row">
-            <label class="control-label col-md-12" for="fechaCreacion">Fecha Creacion</label>
-            <div class="col-md-4">
-                <input class="form-control" type="datetime" id="fechaCreacion" name="fechaCreacion">
+                <select id="dd_impuesto" class="form-control" formControlName="impuesto">
+                    <option *ngFor="let c of ListImpuesto" [ngValue]="c">{{ c.nombre }}</option>
+                </select>
             </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechaCreacion') && formDir.submitted">
-                City is required
-            </span>
-        </div>
-        <div class="form-group row">
-            <label class="control-label col-md-12" for="fechaModificacion">Fecha Modificacion</label>
-            <div class="col-md-4">
-                <input class="form-control" type="datetime" formControlName="fechaModificacion">
-            </div>
-            <span class="text-danger" *ngIf="productoForm.hasError('required', 'fechaModificacion') && formDir.submitted">
-                City is required
-            </span>
         </div>
         <div class="row checkbox">
             <label class="center-block">
