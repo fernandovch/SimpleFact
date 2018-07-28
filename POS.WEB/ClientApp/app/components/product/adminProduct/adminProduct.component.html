@@ -12,15 +12,17 @@
         <div class="form-group row">
             <label class="control-label col-md-12" for="dd_categoria">Categoria</label>
             <div class="col-md-4">
-                <select id="dd_categoria" class="form-control" formControlName="categoria">
-                    <option *ngFor="let c of productoCategoriaList" [ngValue]="c">{{ c.nombreCategoria }}</option>
+                <select id="dd_categoria" class="form-control" formControlName="categoria" [(ngModel)] ="productoCategoriaList.id">
+                    <option value="" disabled="true" [selected]="!productoCategoriaList.id">-- Please Select --</option>
+                    <option *ngFor="let c of productoCategoriaList" [ngValue]="c" ng-init="c='1'"> {{ c.nombreCategoria }}</option>
                 </select>
             </div>
         </div>
         <div class="form-group row">
             <label class="control-label col-md-12" for="dd_proveedor">Proveedor</label>
             <div class="col-md-4">
-                <select id="dd_proveedor" class="form-control" formControlName="proveedor">
+                <select id="dd_proveedor" class="form-control" formControlName="proveedor" [(ngModel)] ="Listproveedores.id">
+                    <option value="" disabled="true" [selected]="!Listproveedores.id">-- Please Select --</option>
                     <option *ngFor="let c of Listproveedores" [ngValue]="c">{{ c.nombre }}</option>
                 </select>
             </div>
@@ -28,7 +30,8 @@
         <div class="form-group row">
             <label class="control-label col-md-12" for="dd_unidadMedida">Unidad Medida</label>
             <div class="col-md-4">
-                <select id="dd_unidadMedida" class="form-control" formControlName="unidadMedida">
+                <select id="dd_unidadMedida" class="form-control" formControlName="unidadMedida" [(ngModel)] ="ListunidadMedida.id">
+                    <option value="" disabled="true" [selected]="!ListunidadMedida.id">-- Please Select --</option>
                     <option *ngFor="let c of ListunidadMedida" [ngValue]="c">{{ c.descripcion }}</option>
                 </select>
             </div>
